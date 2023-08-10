@@ -1,0 +1,1 @@
+web: gunicorn hub_005.wsgi
