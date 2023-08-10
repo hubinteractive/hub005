@@ -34,7 +34,9 @@ SECRET_KEY = 'django-insecure-=3_3x9b2vbfzn@izc^m^hcllv(q0*a=@2judd54g7*hxn&hrks
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'hub005-b89b9b76295e.herokuapp.com'
+]
 
 
 # Application definition
@@ -93,13 +95,23 @@ DATABASES = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'database name',
-        'USER': 'database user',
-        'PASSWORD': 'database password',
-        'HOST': 'database endpoint',
-        'PORT': 'database port',
+        'NAME': 'd430u5mon5pvhp',
+        'USER': 'twobhzycrocvlo',
+        'PASSWORD': 'c70c44be98c1f82b46dc14253c559f0cbb6ba6e86cbd3b2c4b8257eda96adc01',
+        'HOST': 'ec2-34-202-127-5.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'database name',
+#         'USER': 'database user',
+#         'PASSWORD': 'database password',
+#         'HOST': 'database endpoint',
+#         'PORT': 'database port',
+#     }
+# }
 
 # import dj_database_url
 # db_from_env = dj_database_url.config(conn_max_age=600)
@@ -144,8 +156,10 @@ STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
-    
 ]
+
+STATIC_ROOT = os.paht.join(BASE_DIR, 'staticfiles')
+django_heroku.settings(locals())
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
@@ -155,4 +169,3 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-django_heroku.settings(locals())
