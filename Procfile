@@ -1,1 +1,1 @@
-web: gunicorn hub_005.wsgi
+web: gunicorn liquidspirit.wsgi
