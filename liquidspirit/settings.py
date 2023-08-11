@@ -35,7 +35,8 @@ SECRET_KEY = 'django-insecure-=3_3x9b2vbfzn@izc^m^hcllv(q0*a=@2judd54g7*hxn&hrks
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'hub005-b89b9b76295e.herokuapp.com'
+    'hub005-b89b9b76295e.herokuapp.com',
+    '127.0.0.1:8000'
 ]
 
 
@@ -48,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ls_blog.apps.LsBlogConfig',
 ]
 
 MIDDLEWARE = [
