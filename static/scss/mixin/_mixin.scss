@@ -1,0 +1,255 @@
+@import "../variables/fonts";
+@import "../variables/navbar";
+@import "../variables/colors";
+@import "../variables/buttons";
+@import "../variables/variables";
+@mixin h2-base-styles($color, $backgroundColor:transparent, $property: null, $value: null, $propertyX: null, $valueX: null) {
+    @if $backgroundColor !=transparent {
+        background-color: $backgroundColor;
+    }
+    @if($property !=null) {
+        #{$property}: $value
+    }
+    @if($propertyX !=null) {
+        #{$propertyX}: $valueX
+    }
+    font-size: $base-font-size-h2;
+    margin-bottom: $base-margin-bottom-h2;
+    color: $blue-dark-styled;
+    letter-spacing: -.875px;
+    line-height: 1;
+    color: $color;
+}
+
+@mixin h1-base-styles($color, $backgroundColor:transparent, $property: null, $value: null, $propertyX: null, $valueX: null) {
+    @if $backgroundColor !=transparent {
+        background-color: $backgroundColor;
+    }
+    @if($property !=null) {
+        #{$property}: $value
+    }
+    @if($propertyX !=null) {
+        #{$propertyX}: $valueX
+    }
+    font-size: $base-font-size-h1;
+    margin-bottom: $base-margin-bottom-h2;
+    color: $blue-dark-styled;
+    letter-spacing: -.875px;
+    line-height: 1;
+    color: $color;
+}
+
+@mixin center-text-shop ($pointer: null, $value-pointer: null, $items-225: null, $items-2251: null) {
+    @if($pointer !=null) {
+        #{$pointer}: $value-pointer
+    }
+    @if($items-225 !=null) {
+        #{$items-225}: $items-2251
+    }
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+@mixin sub-menu-list-mx ($pointer: null, $value-pointer: null) {
+    @if($pointer !=null) {
+        #{$pointer}: $value-pointer
+    }
+    font-size: .655rem;
+    list-style: none!important;
+    font-weight: 700;
+    line-height: normal;
+    padding: .5rem 0 .5rem 0;
+    color: rgba(255, 255, 255, .6);
+}
+
+// p-styling
+@mixin fs-p--shop-bnn ($value-color: null, $value--color: null, $text--align: null, $text--ag: null, $fs-h2--margin: null, $fs-h2-vMargin: null, $fs-h2--marginDy: null, $fs-h2-vMarginDy: null) {
+    @if($value-color !=null) {
+        #{$value-color}: $value--color
+    }
+    @if($text--align !=null) {
+        #{$text--align}: $text--ag
+    }
+    @if($fs-h2--margin !=null) {
+        #{$fs-h2--margin}: $fs-h2-vMargin
+    }
+    @if($fs-h2--marginDy !=null) {
+        #{$fs-h2--marginDy}: $fs-h2-vMarginDy
+    }
+    font-size: $base-font-size-p;
+    // margin: 0rem 0rem 2.66667rem 0rem;
+    letter-spacing: 0.25px;
+    font-weight: 700;
+    line-height: 1.6;
+    line-height: normal;
+}
+
+// h1 styling
+@mixin fs-h1--shop-hub ($value-color: null, $value--color: null, $text--align: null, $text--ag: null, $fs-h2--margin: null, $fs-h2-vMargin: null) {
+    @if($value-color !=null) {
+        #{$value-color}: $value--color
+    }
+    @if($text--align !=null) {
+        #{$text--align}: $text--ag
+    }
+    @if($fs-h2--margin !=null) {
+        #{$fs-h2--margin}: $fs-h2-vMargin
+    }
+    font-size: $base-font-size-h1;
+    // margin: 0rem 0rem 2.66667rem 0rem;
+    letter-spacing: 0.25px;
+    font-weight: 700;
+    line-height: 3.33333;
+    line-height: normal;
+}
+
+// h2-styling
+@mixin fs-h2--shop-hub ($value-color: null, $value--color: null, $text--align: null, $text--ag: null, $fs-h2--margin: null, $fs-h2-vMargin: null) {
+    @if($value-color !=null) {
+        #{$value-color}: $value--color
+    }
+    @if($text--align !=null) {
+        #{$text--align}: $text--ag
+    }
+    @if($fs-h2--margin !=null) {
+        #{$fs-h2--margin}: $fs-h2-vMargin
+    }
+    font-size: $fs-h2-shop-hub;
+    // margin: 0rem 0rem 2.66667rem 0rem;
+    letter-spacing: 0.25px;
+    font-weight: 700;
+    line-height: 1.6;
+    // line-height: normal;
+}
+
+// h3-styling
+@mixin fs-h3--shop-hub ($value-colora1: null, $value--colora1: null, $text--aligna1: null, $text--aga1: null, $fs-h2--margina1: null, $fs-h2-vMargina1: null, $fs-h2--margina2: null, $fs-h2-vMargina2: null) {
+    @if($value-colora1 !=null) {
+        #{$value-colora1}: $value--colora1
+    }
+    @if($text--aligna1 !=null) {
+        #{$text--aligna1}: $text--aga1
+    }
+    @if($fs-h2--margina1 !=null) {
+        #{$fs-h2--margina1}: $fs-h2-vMargina1
+    }
+    @if($fs-h2--margina2 !=null) {
+        #{$fs-h2--margina2}: $fs-h2-vMargina2
+    }
+    font-size: $base-font-size-h3;
+    // margin: 0rem 0rem 2.66667rem 0rem;
+    letter-spacing: 0.25px;
+    font-weight: 700;
+    line-height: 1.4;
+    // line-height: normal;
+}
+
+// Font-Shop-Info
+@mixin fs-shop-info--hub ($value-colora1: null, $value--colora1: null, $text--aligna1: null, $text--aga1: null, $fs-h2--margina1: null, $fs-h2-vMargina1: null) {
+    @if($value-colora1 !=null) {
+        #{$value-colora1}: $value--colora1
+    }
+    @if($text--aligna1 !=null) {
+        #{$text--aligna1}: $text--aga1
+    }
+    @if($fs-h2--margina1 !=null) {
+        #{$fs-h2--margina1}: $fs-h2-vMargina1
+    }
+    font-size: $fs-font-content;
+    // margin: 0rem 0rem 2.66667rem 0rem;
+    letter-spacing: 0.75px;
+    font-weight: 500;
+    line-height: 1.4;
+    // line-height: normal;
+}
+
+@mixin fs-content--2 ($value-colora1: null, $value--colora1: null, $text--aligna1: null, $text--aga1: null, $fs-h2--margina1: null, $fs-h2-vMargina1: null) {
+    @if($value-colora1 !=null) {
+        #{$value-colora1}: $value--colora1
+    }
+    @if($text--aligna1 !=null) {
+        #{$text--aligna1}: $text--aga1
+    }
+    @if($fs-h2--margina1 !=null) {
+        #{$fs-h2--margina1}: $fs-h2-vMargina1
+    }
+    font-size: $fs-font-content;
+    // margin: 0rem 0rem 2.66667rem 0rem;
+    letter-spacing: 0.75px;
+    font-weight: 500;
+    line-height: 1.4;
+    // line-height: normal;
+}
+
+@mixin fs-content--3 ($value-colora1: null, $value--colora1: null, $text--aligna1: null, $text--aga1: null, $fs-h2--margina1: null, $fs-h2-vMargina1: null) {
+    @if($value-colora1 !=null) {
+        #{$value-colora1}: $value--colora1
+    }
+    @if($text--aligna1 !=null) {
+        #{$text--aligna1}: $text--aga1
+    }
+    @if($fs-h2--margina1 !=null) {
+        #{$fs-h2--margina1}: $fs-h2-vMargina1
+    }
+    font-size: $fs-shop-info-2rem;
+    // margin: 0rem 0rem 2.66667rem 0rem;
+    letter-spacing: 0.75px;
+    font-weight: 500;
+    line-height: 1.4;
+    // line-height: normal;
+}
+
+@mixin fs-footer--1 ($value-colora1: null, $value--colora1: null, $text--aligna1: null, $text--aga1: null, $fs-h2--margina1: null, $fs-h2-vMargina1: null) {
+    @if($value-colora1 !=null) {
+        #{$value-colora1}: $value--colora1
+    }
+    @if($text--aligna1 !=null) {
+        #{$text--aligna1}: $text--aga1
+    }
+    @if($fs-h2--margina1 !=null) {
+        #{$fs-h2--margina1}: $fs-h2-vMargina1
+    }
+    font-size: $fs-shop-info;
+    // margin: 0rem 0rem 2.66667rem 0rem;
+    letter-spacing: 0.75px;
+    font-weight: 500;
+    line-height: 1.4;
+    // line-height: normal;
+}
+
+@mixin fs-content--4 ($value-colora1: null, $value--colora1: null, $text--aligna1: null, $text--aga1: null, $fs-h2--margina1: null, $fs-h2-vMargina1: null) {
+    @if($value-colora1 !=null) {
+        #{$value-colora1}: $value--colora1
+    }
+    @if($text--aligna1 !=null) {
+        #{$text--aligna1}: $text--aga1
+    }
+    @if($fs-h2--margina1 !=null) {
+        #{$fs-h2--margina1}: $fs-h2-vMargina1
+    }
+    font-size: $fs-font-content--4;
+    // margin: 0rem 0rem 2.66667rem 0rem;
+    letter-spacing: 0.75px;
+    font-weight: 500;
+    line-height: 1.4;
+    // line-height: normal;
+}
+
+@mixin fs-content-1--4 ($value-colora1: null, $value--colora1: null, $text--aligna1: null, $text--aga1: null, $fs-h2--margina1: null, $fs-h2-vMargina1: null) {
+    @if($value-colora1 !=null) {
+        #{$value-colora1}: $value--colora1
+    }
+    @if($text--aligna1 !=null) {
+        #{$text--aligna1}: $text--aga1
+    }
+    @if($fs-h2--margina1 !=null) {
+        #{$fs-h2--margina1}: $fs-h2-vMargina1
+    }
+    font-size: $fs-font-content-1--4;
+    // margin: 0rem 0rem 2.66667rem 0rem;
+    letter-spacing: 0.75px;
+    font-weight: 500;
+    line-height: 2rem;
+    // line-height: normal;
+}
