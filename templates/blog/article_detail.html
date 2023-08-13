@@ -7,7 +7,7 @@
         <!-- <img class="w-100" src="{% static 'img/The-Django-Stage.jpg' %}" alt="The Django stage"> -->
     </div>
 </div>
-<div class="container my-10 text-center">
+<div class="container my-5 text-center">
 
     <div style="position: absolute;width: 100%;bottom: 0;width: 100%;left: 0;" class="text-center w-100">
         <h1 class="tangelo hero_title-container__41UbM">
@@ -19,21 +19,25 @@
     </li>
 
 </div>
-
+<hr>
 
 <div class="container py-5">
-    <h1 class="tangelo hero_title-container__41UbM mb-5">
+    <!-- <h1 class="tangelo hero_title-container__41UbM mb-5">
         X
-    </h1> {% for post in object_list %}
-    <ul class="blog-list mb-8">
-        <li class="anti-flash-white">
-            <h3>{{ post.title }}</h3>
-        </li>
-        <li class="anti-flash-white">{{ post.author.first_name }} {{ post.author.last_name }} - <small> {{ post.author.email }}</small></li>
-        <li class="anti-flash-white mb-3">{{ post.body }}</li>
+    </h1> -->
+    <div class="row">
+        <div class="col-lg-8">
+            <ul class="blog-list mb-8">
+                <li class="anti-flash-white">
+                    <h3 class="hero_title-container__42UbM">{{ post.title }}</h3>
+                </li>
+                <li class="anti-flash-white mb-4">{{ post.author.first_name }} {{ post.author.last_name }} - <small> {{ post.author.email }}</small></li>
+                <li class="anti-flash-white">{{ post.body }}</li>
+            </ul>
+        </div>
+        <div class="col-lg-4"></div>
+    </div>
 
-        <a href="{% url 'blog:article-detail' post.pk %}">Read more</a>
-    </ul>
-    {% endfor %}
+
 </div>
 {% endblock content %}

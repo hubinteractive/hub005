@@ -1,5 +1,7 @@
 from django.urls import path
-from . import views 
+# from . import views 
+
+from .views import BaseIndex, ArticleDetailView
 
 
 app_name = 'blog'
@@ -7,7 +9,12 @@ app_name = 'blog'
 urlpatterns = [
 
 
-    path('', views.BaseIndex, name='index'),
+    # path('', views.BaseIndex, name='index'),
+    path('', BaseIndex.as_view(), name='index'),
+    path('article/<int:pk>', ArticleDetailView.as_view(), name='article-detail'),
+
+    
+    
     # path('<int:pk>/', views.DetailView.as_view(), name='detail'),
     # path('<int:pk>/results/', views.ResultsView.as_view(), name='results'),
     # path('<int:question_id>/vote/', views.vote, name='vote'),
