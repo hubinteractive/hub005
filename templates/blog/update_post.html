@@ -1,0 +1,36 @@
+ {% extends "core/base.html" %} {% block title %} Update post | {% endblock title %} {% load static %}
+<!--  -->
+{% block content %}
+
+<div class="container-fluid px-0">
+    <div class="hero_canvasImageContainer__WQ5Fy" style="background-image:url(../../static/img/The-Django-Stage.jpg);width: 100%;height: auto;">
+        <!-- <img class="w-100" src="{% static 'img/The-Django-Stage.jpg' %}" alt="The Django stage"> -->
+    </div>
+</div>
+<div class="container my-10">
+
+    <div style="position: absolute;width: 100%;bottom: 0;width: 100%;left: 0;" class="text-center w-100">
+        <h1 class="tangelo hero_title-container__41UbM">
+            Liquid Spirit
+        </h1>
+    </div>
+    <li class="anti-flash-white hero_title-container__42UbM " style="list-style: none;">
+        Update Post
+    </li>
+    <hr>
+
+    <div class="form_post">
+        <div class="mt-5 form_style">
+            <form method="Post">
+                {% csrf_token %} {{ form.as_p }}
+
+                <button class="btn btn-outline-light" style="min-width: 120px;">Update</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+
+
+{% endblock content %}
