@@ -60,12 +60,20 @@
     color: rgba(242, 242, 242, .52);
 }
 
+.profile-menu .dropdown-item {
+    padding-left: 2.5rem;
+}
+
+.profile-menu a {
+    font-size: 1rem;
+}
+
 small {
     color: var(--ufo-green)
 }
 
 a {
-    color: var(--ufo-green)
+    color: var(--anti-flash-white)
 }
 
 label {

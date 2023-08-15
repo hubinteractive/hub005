@@ -37,7 +37,7 @@
                         {{ post.author.first_name }} {{ post.author.last_name }} | <small> {{ post.author.email }}</small>
                     </span>
                     <span class="me-5">
-
+                        {% if user.is_authenticated %}
                         <div class="d-flex align-items-center">
                             <a href="{% url 'blog:update-post' post.pk %}">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -52,11 +52,11 @@
                                   </svg>
                             </a>
                         </div>
-                    
+                    {% endif %}
                 </span>
 
                 </li> {{ post.author.last_name }} - <small> {{ post.author.email }}</small></li>
-                <li class="anti-flash-white">{{ post.body }}</li>
+                <li class="anti-flash-white">{{ post.body|safe }}</li>
             </ul>
         </div>
         <div class="col-lg-4 ps-5">

@@ -1,6 +1,7 @@
- {% extends "core/base.html" %} {% block title %} Add post | {% endblock title %} {% load static %}
+{% extends "core/base.html" %} {% block title %} Register | {% endblock title %} {% load static %}
 <!--  -->
-{% block content %} {% if user.is_authenticated %}
+{% block content %}
+
 <div class="container-fluid px-0">
     <div class="hero_canvasImageContainer__WQ5Fy" style="background-image:url(../../static/img/The-Django-Stage.jpg);width: 100%;height: auto;">
         <!-- <img class="w-100" src="{% static 'img/The-Django-Stage.jpg' %}" alt="The Django stage"> -->
@@ -14,7 +15,7 @@
         </h1>
     </div>
     <li class="anti-flash-white hero_title-container__42UbM " style="list-style: none;">
-        Add Post
+        Register
     </li>
     <hr>
 
@@ -23,15 +24,13 @@
             <form method="Post">
                 {% csrf_token %} {{ form.as_p }}
 
-                <button class="btn btn-outline-light" style="min-width: 120px;">Post</button>
+                <button class="btn btn-outline-light" style="min-width: 120px;">Register</button>
             </form>
         </div>
     </div>
 
 </div>
 
-{% else %}
-<div class="container my-10 text-center">
-    <h1 class="anti-flash-white">You are not allowed here!!!</h1>
-</div>
-{% endif %} {% endblock content %}
+
+
+{% endblock content %}

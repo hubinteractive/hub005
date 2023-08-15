@@ -1,4 +1,4 @@
- {% extends "core/base.html" %} {% block title %} Add post | {% endblock title %} {% load static %}
+ {% extends "core/base.html" %} {% block title %} Add category | {% endblock title %} {% load static %}
 <!--  -->
 {% block content %} {% if user.is_authenticated %}
 <div class="container-fluid px-0">
@@ -6,7 +6,7 @@
         <!-- <img class="w-100" src="{% static 'img/The-Django-Stage.jpg' %}" alt="The Django stage"> -->
     </div>
 </div>
-<div class="container my-10 text-center">
+<div class="container my-10">
 
     <div style="position: absolute;width: 100%;bottom: 0;width: 100%;left: 0;" class="text-center w-100">
         <h1 class="tangelo hero_title-container__41UbM">
@@ -14,7 +14,7 @@
         </h1>
     </div>
     <li class="anti-flash-white hero_title-container__42UbM " style="list-style: none;">
-        Add Post
+        Add Category
     </li>
     <hr>
 
@@ -23,7 +23,7 @@
             <form method="Post">
                 {% csrf_token %} {{ form.as_p }}
 
-                <button class="btn btn-outline-light" style="min-width: 120px;">Post</button>
+                <button class="btn btn-outline-light" style="min-width: 120px;">Add Category</button>
             </form>
         </div>
     </div>

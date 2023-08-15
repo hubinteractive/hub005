@@ -1,7 +1,6 @@
  {% extends "core/base.html" %} {% block title %} Update post | {% endblock title %} {% load static %}
 <!--  -->
-{% block content %}
-
+{% block content %} {% if user.is_authenticated %}
 <div class="container-fluid px-0">
     <div class="hero_canvasImageContainer__WQ5Fy" style="background-image:url(../../static/img/The-Django-Stage.jpg);width: 100%;height: auto;">
         <!-- <img class="w-100" src="{% static 'img/The-Django-Stage.jpg' %}" alt="The Django stage"> -->
@@ -31,6 +30,8 @@
 
 </div>
 
-
-
-{% endblock content %}
+{% else %}
+<div class="container my-10 text-center">
+    <h1 class="anti-flash-white">You are not allowed here!!!</h1>
+</div>
+{% endif %} {% endblock content %}
