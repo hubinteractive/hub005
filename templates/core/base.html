@@ -20,80 +20,90 @@
     <style>
 
     </style>
-    <nav class="navbar navbar-expand-lg fixed-top px-4" style="position: fixed;">
+
+
+    <nav class="navbar navbar-expand-lg fixed-top" style="position: fixed;">
         <div class="container-fluid align-content-center bg-textg">
             <a class="navbar-brand" href="/">Liquid Minds.</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mb-2 mb-lg-0" style="width: 33%;">
+                <ul class="navbar-nav mb-2 mb-lg-0 d-flex align-items-center" style="width: 33%;">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Link</a>
                     </li>
+                    {% if cat_menu %}
+                    <div class="dropdown">
+                        <button style="border:0; background-color: transparent;" class="btn btn-dark dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Categories
+                        </button>
+                        <ul class="dropdown-menu">
+                            {% for item in cat_menu %}
+                            <li>
+                                <a style="text-transform: capitalize;" class="dropdown-item" href="{%  url 'blog:category' item|slugify|title %}">{{ item }}</a>
+                            </li>
+                            {% endfor %}
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
 
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="">Login</a>
-                    </li> -->
-
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </div>
+                    {% endif %}
                     <li class="nav-item">
                         <a class="nav-link disabled">Disabled</a>
                     </li>
+
+
                 </ul>
                 <form class="d-flex mb-0" role="search" style="width: 33%;">
                     <input class="form-control me-2" type="search" placeholder="Blog search..." aria-label="Search">
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
 
-                <ul class="navbar-nav mb-2 mb-lg-0" style="width: 33%;display: flex;justify-content: end;">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            {% if user.is_authenticated %}
-                            Edit
-                            {% else %}
-                            Profle
-                            {% endif %}
-                            </a>
 
 
-                        <ul class="dropdown-menu shadow-lg profile-menu">
-                            {% if user.is_authenticated %}
-                            <li>
-                                <a class="dropdown-item" href="{% url 'blog:add-post' %}">Add post</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="{% url 'blog:add-category' %}">Add Category</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
-                            </li>
+                <div class="mb-2 mb-lg-0" style="width: 33%;display: flex;justify-content: center;">
+                    <ul class="d-flex align-items-baseline mb-0">
+                        <li style="list-style: none;" class="me-2"><a href="/">Tech</a>
+                            <span aria-hidden="true" class="anti-flash-white ms-2">/</span>
+                        </li>
+                        <li style="list-style: none;" class="me-2"><a href="/">Reviews</a>
+                            <span aria-hidden="true" class="anti-flash-white ms-2">/</span>
+                        </li>
+                        <li style="list-style: none;" class="me-2"><a href="/">Science</a>
+                            <span aria-hidden="true" class="anti-flash-white ms-2">/</span>
+                        </li>
+                        <div class="anti-flash-white" style="margin-top: 0;" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                            <span>More</span>
+                            <svg style="margin-bottom: .25rem;" xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+                          </svg>
+                        </div>
+                    </ul>
 
-                            {% else %}
-                            <li>
-                                <a class="dropdown-item" href="{% url 'members:register' %}">
-                           
-                                    Register
-                                </a>
-                            </li>
+                    {% if user.is_authenticated %}
 
-                            <li>
-                                <a class="dropdown-item" href="{% url 'members:login' %}">Login</a>
-                                <!--  -->
-                                {% endif %}
-                            </li>
+                    <!--  -->
+                    {% else %}
 
-                        </ul>
-                    </li>
+                    <!--  -->
+                    {% endif %}
 
-
-                </ul>
+                </div>
 
 
             </div>
+
         </div>
+
+
     </nav>
 
     <!--  -->
@@ -109,6 +119,159 @@
     </footer>
     <script src="{% static 'dist/bootstrap-5.3.0/dist/js/bootstrap.bundle.min.js' %}"></script>
 
+
+    <!-- offcanvas -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <div class="offcanvas-header">
+            <h4 class="offcanvas-title" id="offcanvasRightLabel">Liquid Spirit</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="profile-menu ps-0">
+                <form class="d-flex mb-0" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Blog search..." aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+
+            </ul>
+
+
+
+
+
+            <ul style="margin-left: 0;height: 60vh;padding-left: 0;" class="py-3">
+                <li class="mb-off-list">
+                    <a style="font-size: 2rem;font-weight: 600;" href="">Tech</a>
+                </li>
+
+                <!-- Podcasts -->
+                <li class="mb-off-list">
+                    <a class="d-flex justify-content-between align-items-center" data-bs-toggle="collapse" href="#collapseExample" style="font-size: 2rem;font-weight: 600;" href=""> <span>Podcasts</span>
+                        <svg width="25" height="25" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg" class="ml-8 inline-block h-18 w-18 md:mt-2 md:h-[22px] md:w-[22px] fill-white"><title>Expand</title><path d="M28 11.76H16.24V0h-4.48v11.76H0v4.48h11.76V28h4.48V16.24H28v-4.48Z"></path></svg>
+                    </a>
+                    <div class="collapse" id="collapseExample">
+                        <div class="card card-body">
+                            <ul style="padding-left: 0;">
+                                <li>
+                                    <a class="anti-flash-white" style="font-size: 1.5rem;" href="#">
+                                    All Podcasts
+                                </a>
+                                </li>
+                                <li>
+                                    <a class="anti-flash-white" style="font-size: 1.5rem;" href="#">
+                                    Decoder
+                                </a>
+                                </li>
+                                <li>
+                                    <a class="anti-flash-white" style="font-size: 1.5rem;" href="#">
+                                    The Vergecast
+                                </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="mb-off-list">
+                    <a style="font-size: 2rem;font-weight: 600;" href="">Reviews</a>
+                </li>
+                <li class="mb-off-list">
+                    <a style="font-size: 2rem;font-weight: 600;" href="">Science</a>
+                </li>
+                <li class="mb-off-list">
+                    <a style="font-size: 2rem;font-weight: 600;" href="">Culture</a>
+                </li>
+                <li class="mb-off-list">
+                    <a style="font-size: 2rem;font-weight: 600;" href="">Store</a>
+                </li>
+                {% if user.is_authenticated %}
+                <div style="height: 10vh; margin-top: 3rem;">
+                    <li>
+                        <a class="dropdown-item" href="{% url 'blog:add-post' %}">Add post</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="{% url 'blog:add-category' %}">Add Category</a>
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+                    </li>
+                </div>
+
+                <!-- Social -->
+                <div class="social">
+                    <h6 style="color:#3cffd0;margin-top: 1rem;margin-bottom: 1rem;">Follow Us</h6>
+
+                    <div class="d-flex align-items-center">
+                        <a href="" class="">
+                            <svg class="" width="34" height="34" viewBox="0 0 40 40" fill="white" xmlns="http://www.w3.org/2000/svg"><title>Twitter</title><path d="M32.7239 13.5843C32.7435 13.8647 32.7435 14.1452 32.7435 14.4282C32.7435 23.0512 26.1393 32.9961 14.0635 32.9961V32.991C10.4962 32.9962 7.00305 31.9805 4 30.0654C4.51871 30.1274 5.04002 30.1584 5.56262 30.1597C8.51887 30.1623 11.3906 29.1763 13.7164 27.3608C10.907 27.3078 8.44347 25.487 7.58286 22.8289C8.56697 23.0176 9.58099 22.9788 10.5469 22.7165C7.48405 22.1014 5.28052 19.4265 5.28052 16.32C5.28052 16.2915 5.28052 16.2644 5.28052 16.2373C6.19313 16.7425 7.21495 17.0229 8.26017 17.054C5.37542 15.1376 4.48621 11.3229 6.22823 8.34048C9.56149 12.4175 14.4795 14.8959 19.7588 15.1583C19.2297 12.8917 19.9525 10.5166 21.6582 8.92327C24.3024 6.45254 28.4612 6.57918 30.9468 9.20627C32.4171 8.91811 33.8264 8.38183 35.116 7.622C34.6259 9.13262 33.6002 10.4158 32.2299 11.2312C33.5313 11.0787 34.8027 10.7324 36 10.2039C35.1186 11.5168 34.0084 12.6604 32.7239 13.5843Z" fill="#3cffd0"></path>
+                            </svg>
+                        </a>
+
+
+                        <a href="" class="ms-2">
+                            <svg class="" width="34" height="34" viewBox="0 0 40 40" fill="white" xmlns="http://www.w3.org/2000/svg"><title>Facebook</title><path d="M26.0174 21.7497L26.8495 16.3604H21.6403V12.8637C21.6403 11.3906 22.3668 9.95151 24.7019 9.95151H27.0714V5.36435C27.0714 5.36435 24.9212 5 22.866 5C18.5761 5 15.7707 7.57929 15.7707 12.2529V16.3604H11V21.7497H15.7707V34.7746C16.727 34.924 17.707 35 18.7055 35C19.704 35 20.6841 34.9214 21.6403 34.7746V21.7497H26.0174Z" fill="#3cffd0"></path>
+                        </svg>
+                        </a>
+
+                        <a href="" class="ms-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#3cffd0" class="bi bi-github" viewBox="0 0 16 16">
+                            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                          </svg>
+                        </a>
+                    </div>
+                </div>
+                {% else %}
+
+                <!-- Social  -->
+                <div class="social">
+                    <div style="height: 10vh; margin-top: 3rem;">
+                        <h6 style="color:#3cffd0">Memebers</h6>
+                        <div class="d-flex align-items-center">
+                            <li class="ps-0">
+                                <a style="font-size: 1rem;text-decoration: underline!important;color:#3cffd0;font-weight: 500;" class="dropdown-item" href="{% url 'members:login' %}">
+           
+                                Log In
+                         </a>
+                            </li>
+                            <span aria-hidden="true" class="anti-flash-white ms-2">/</span>
+                            <li class="ms-2">
+                                <a style="font-size: 1rem;text-decoration: underline!important;color:#3cffd0;font-weight: 500" class="dropdown-item" href="{% url 'members:register' %}">
+                                Sign Up
+                            </a>
+                                <!--  -->
+
+                            </li>
+
+
+                        </div>
+                    </div>
+
+                    <!-- Social -->
+                    <div class="social">
+                        <h6 style="color:#3cffd0;margin-top: 1rem;margin-bottom: 1rem;">Follow Us</h6>
+
+                        <div>
+                            <a href="https://twitter.com/verge" class="hover:opacity-60 hover:transition-all hover:ease-in-out"><svg class="" width="34" height="34" viewBox="0 0 40 40" fill="white" xmlns="http://www.w3.org/2000/svg"><title>Twitter</title><path d="M32.7239 13.5843C32.7435 13.8647 32.7435 14.1452 32.7435 14.4282C32.7435 23.0512 26.1393 32.9961 14.0635 32.9961V32.991C10.4962 32.9962 7.00305 31.9805 4 30.0654C4.51871 30.1274 5.04002 30.1584 5.56262 30.1597C8.51887 30.1623 11.3906 29.1763 13.7164 27.3608C10.907 27.3078 8.44347 25.487 7.58286 22.8289C8.56697 23.0176 9.58099 22.9788 10.5469 22.7165C7.48405 22.1014 5.28052 19.4265 5.28052 16.32C5.28052 16.2915 5.28052 16.2644 5.28052 16.2373C6.19313 16.7425 7.21495 17.0229 8.26017 17.054C5.37542 15.1376 4.48621 11.3229 6.22823 8.34048C9.56149 12.4175 14.4795 14.8959 19.7588 15.1583C19.2297 12.8917 19.9525 10.5166 21.6582 8.92327C24.3024 6.45254 28.4612 6.57918 30.9468 9.20627C32.4171 8.91811 33.8264 8.38183 35.116 7.622C34.6259 9.13262 33.6002 10.4158 32.2299 11.2312C33.5313 11.0787 34.8027 10.7324 36 10.2039C35.1186 11.5168 34.0084 12.6604 32.7239 13.5843Z" fill="#3cffd0"></path></svg></a>
+
+                            <a href="" class="ms-2"><svg class="" width="34" height="34" viewBox="0 0 40 40" fill="white" xmlns="http://www.w3.org/2000/svg"><title>Facebook</title><path d="M26.0174 21.7497L26.8495 16.3604H21.6403V12.8637C21.6403 11.3906 22.3668 9.95151 24.7019 9.95151H27.0714V5.36435C27.0714 5.36435 24.9212 5 22.866 5C18.5761 5 15.7707 7.57929 15.7707 12.2529V16.3604H11V21.7497H15.7707V34.7746C16.727 34.924 17.707 35 18.7055 35C19.704 35 20.6841 34.9214 21.6403 34.7746V21.7497H26.0174Z" fill="#3cffd0"></path></svg></a>
+
+                            <a href="" class="ms-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#3cffd0" class="bi bi-github" viewBox="0 0 16 16">
+                                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                                  </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                {% endif %}
+
+            </ul>
+
+
+        </div>
+
+    </div>
 
 
 

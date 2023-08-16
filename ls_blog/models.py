@@ -7,7 +7,7 @@ from django.urls import reverse
 
 
 class PostCategory(models.Model):
-    cat_name = models.CharField(max_length=255, default='uncategorized')
+    cat_name = models.CharField(max_length=255, default='')
 
     def __str__(self):
         return self.cat_name 

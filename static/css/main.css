@@ -68,12 +68,41 @@
     font-size: 1rem;
 }
 
+.active-cat {
+    color: var(--secondary-white)
+}
+
+.fill-white {
+    fill: var(--anti-flash-white);
+}
+
+.off-fs-2 {
+    font-size: 2rem!important;
+    font-weight: 600;
+}
+
+.offcanvas .dropdown-item {
+    padding-left: 0;
+}
+
+h6 {
+    text-transform: uppercase;
+    font-size: .875rem;
+    font-weight: 500;
+}
+
+.mb-off-list {
+    padding-bottom: .75rem;
+    padding-top: .75rem;
+    border-bottom: solid 1px rgba(255, 255, 255, .22);
+}
+
 small {
     color: var(--ufo-green)
 }
 
 a {
-    color: var(--anti-flash-white)
+    color: var(--anti-flash-white);
 }
 
 label {

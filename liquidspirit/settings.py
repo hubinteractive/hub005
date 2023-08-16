@@ -100,13 +100,23 @@ WSGI_APPLICATION = 'liquidspirit.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd430u5mon5pvhp',
-        'USER': 'twobhzycrocvlo',
-        'PASSWORD': 'c70c44be98c1f82b46dc14253c559f0cbb6ba6e86cbd3b2c4b8257eda96adc01',
-        'HOST': 'ec2-34-202-127-5.compute-1.amazonaws.com',
+        'NAME': 'd1chr047rui054',
+        'USER': 'neabhhbzdyjxca',
+        'PASSWORD': '6cd4aa8e6a8cccf3b8acf9265246c68515ca08c041b9684e34a8b5d35d5c3b25',
+        'HOST': 'ec2-52-0-187-246.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'd430u5mon5pvhp',
+#         'USER': 'twobhzycrocvlo',
+#         'PASSWORD': 'c70c44be98c1f82b46dc14253c559f0cbb6ba6e86cbd3b2c4b8257eda96adc01',
+#         'HOST': 'ec2-34-202-127-5.compute-1.amazonaws.com',
+#         'PORT': '5432',
+#     }
+# }
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql',

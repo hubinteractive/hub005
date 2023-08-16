@@ -27,6 +27,14 @@
     </h1> -->
     <div class="row">
         <div class="col-lg-8">
+
+            <nav aria-label="breadcrumb mb-4">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/">Home</a></li>
+                    <li class="breadcrumb-item active-cat" aria-current="page">{{ post.cat_name }}</li>
+                </ol>
+            </nav>
+
             <ul class="blog-list mb-8">
                 <li class="anti-flash-white">
                     <h3 class="hero_title-container__42UbM">{{ post.title }}</h3>
@@ -55,12 +63,22 @@
                     {% endif %}
                 </span>
 
-                </li> {{ post.author.last_name }} - <small> {{ post.author.email }}</small></li>
-                <li class="anti-flash-white">{{ post.body|safe }}</li>
+
+                    <li class="anti-flash-white">{{ post.body|safe }}</li>
             </ul>
         </div>
         <div class="col-lg-4 ps-5">
             <img class="img-fluid" src="{% static 'img/kandance.jpg' %}" alt="Kandance Springs">
+            <hr>
+            <ul>
+                {% for item in cat_menu %}
+                <li>
+
+                    <a style="text-transform: capitalize;" class="dropdown-item" href="{%  url 'blog:category' item|slugify|title %}">{{ item }}</a>
+                </li>
+                {% endfor %}
+            </ul>
+
         </div>
     </div>
 
