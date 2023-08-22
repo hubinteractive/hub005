@@ -2,86 +2,150 @@
 <!--  -->
 {% block content %}
 
-<div class="container-fluid px-0">
-    <div class="hero_canvasImageContainer__WQ5Fy" style="background-image:url(../../static/img/The-Django-Stage.jpg);width: 100%;height: auto;">
-        <!-- <img class="w-100" src="{% static 'img/The-Django-Stage.jpg' %}" alt="The Django stage"> -->
-    </div>
-</div>
-<div class="container my-5 text-center">
+<div class="container-fluid" style="background-color: #5200ff;">
+    <div class="max-w-container-lg px-0 pt-10 pb-5">
+        <nav aria-label="breadcrumb mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active-cat" aria-current="page">{{ post.cat_name }}</li>
 
-    <div style="position: absolute;width: 100%;bottom: 0;width: 100%;left: 0;" class="text-center w-100">
-        <h1 class="tangelo hero_title-container__41UbM">
-            Liquid Spirit
-        </h1>
-    </div>
-    <li class="anti-flash-white">
-        Central Hub
-    </li>
 
-</div>
-<hr>
+                <!-- <li class="breadcrumb-item active-cat tangelo" aria-current="page"> Current user: {{ user.id }} - {{user.first_name}} {{ user.last_name }}</li> -->
+            </ol>
+        </nav>
 
-<div class="hub_005_width py-5">
-    <!-- <h1 class="tangelo hero_title-container__41UbM mb-5">
-        X
-    </h1> -->
-    <div class="row">
-        <div class="col-lg-8">
 
-            <nav aria-label="breadcrumb mb-4">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="/">Home</a></li>
-                    <li class="breadcrumb-item active-cat" aria-current="page">{{ post.cat_name }}</li>
-                </ol>
-            </nav>
+        <h3 class="hero_title-container__42UbM anti-flash-white mb-3" style="text-decoration: underline;">{{ post.title }} </h3>
+        <h5 class="hero_title-container__43UbM anti-flash-white">{{ post.title_tag }} </h5>
 
-            <ul class="blog-list mb-8">
-                <li class="anti-flash-white">
-                    <h3 class="hero_title-container__42UbM">{{ post.title }}</h3>
-                </li>
-                <li class="anti-flash-white"><small> Published: {{ post.post_date }}</small></li>
-                <li class="anti-flash-white mb-5 d-flex justify-content-between border-bottom py-3">
-                    <span>
-                        {{ post.author.first_name }} {{ post.author.last_name }} | <small> {{ post.author.email }}</small>
-                    </span>
-                    <span class="me-5">
-                        {% if user.is_authenticated %}
-                        <div class="d-flex align-items-center">
-                            <a href="{% url 'blog:update-post' post.pk %}">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                              </svg>
-                            </a>
-                            <a class="ms-4" href="{% url 'blog:delete-post' post.pk %}">
-                                <svg  xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash danger-col" viewBox="0 0 16 16">
-                                    <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
-                                    <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
-                                  </svg>
-                            </a>
-                        </div>
-                    {% endif %}
+        <ul class="blog-list mb-5 ps-0">
+            <li class="anti-flash-white">
+                <small> Published: {{ post.post_date }}</small>
+            </li>
+
+
+            <li class="anti-flash-white mb-2 d-flex justify-content-between pt-3 border-bottom w-75">
+                <span class="anti-flash-white">
+                   By:  {{ post.author.first_name }} {{ post.author.last_name }} 
+                   
+                   <!-- | <small> {{ post.author.email }}</small> -->
                 </span>
 
 
-                    <li class="anti-flash-white">{{ post.body|safe }}</li>
-            </ul>
-        </div>
-        <div class="col-lg-4 ps-5">
-            <img class="img-fluid" src="{% static 'img/kandance.jpg' %}" alt="Kandance Springs">
-            <hr>
-            <ul>
-                {% for item in cat_menu %}
-                <li>
 
-                    <a style="text-transform: capitalize;" class="dropdown-item" href="{%  url 'blog:category' item|slugify|title %}">{{ item }}</a>
-                </li>
-                {% endfor %}
-            </ul>
+                <span class="me-5s" style="padding-right: 2.5%;">
+                    {% if user.is_authenticated %}
+                    {% if user.id ==  post.author.id %}
+                    <div class="d-flex align-items-center">
+                        <a href="{% url 'blog:update-post' post.pk %}">
+                            <svg xmlns="http://www.w3.org/2000/svg"  class="bi bi-pencil-square danger-col" viewBox="0 0 16 16">
+                            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                          </svg>
+                        </a>
+                        <a class="ms-4" href="{% url 'blog:delete-post' post.pk %}">
+                            <svg  xmlns="http://www.w3.org/2000/svg"  class="bi bi-trash danger-col" viewBox="0 0 16 16">
+                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5Zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6Z"/>
+                                <path d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1ZM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118ZM2.5 3h11V2h-11v1Z"/>
+                              </svg>
+                        </a>
+                    </div>
+                    {% endif %}
+                    
+                    {% endif %}
+                </span>
 
-        </div>
+            </li>
+
+            <!-- Social -->
+            <li class="social" style="list-style: none;">
+                <div class="d-flex align-items-center">
+                    <a href="" class="">
+                        <svg class="" width="24" height="24" viewBox="0 0 40 40" fill="#adff00" xmlns="http://www.w3.org/2000/svg"><title>Twitter</title><path d="M32.7239 13.5843C32.7435 13.8647 32.7435 14.1452 32.7435 14.4282C32.7435 23.0512 26.1393 32.9961 14.0635 32.9961V32.991C10.4962 32.9962 7.00305 31.9805 4 30.0654C4.51871 30.1274 5.04002 30.1584 5.56262 30.1597C8.51887 30.1623 11.3906 29.1763 13.7164 27.3608C10.907 27.3078 8.44347 25.487 7.58286 22.8289C8.56697 23.0176 9.58099 22.9788 10.5469 22.7165C7.48405 22.1014 5.28052 19.4265 5.28052 16.32C5.28052 16.2915 5.28052 16.2644 5.28052 16.2373C6.19313 16.7425 7.21495 17.0229 8.26017 17.054C5.37542 15.1376 4.48621 11.3229 6.22823 8.34048C9.56149 12.4175 14.4795 14.8959 19.7588 15.1583C19.2297 12.8917 19.9525 10.5166 21.6582 8.92327C24.3024 6.45254 28.4612 6.57918 30.9468 9.20627C32.4171 8.91811 33.8264 8.38183 35.116 7.622C34.6259 9.13262 33.6002 10.4158 32.2299 11.2312C33.5313 11.0787 34.8027 10.7324 36 10.2039C35.1186 11.5168 34.0084 12.6604 32.7239 13.5843Z" fill="#adff00"></path>
+                            </svg>
+                    </a>
+
+
+                    <a href="" class="ms-2">
+                        <svg class="" width="24" height="24" viewBox="0 0 40 40" fill="white" xmlns="http://www.w3.org/2000/svg"><title>Facebook</title><path d="M26.0174 21.7497L26.8495 16.3604H21.6403V12.8637C21.6403 11.3906 22.3668 9.95151 24.7019 9.95151H27.0714V5.36435C27.0714 5.36435 24.9212 5 22.866 5C18.5761 5 15.7707 7.57929 15.7707 12.2529V16.3604H11V21.7497H15.7707V34.7746C16.727 34.924 17.707 35 18.7055 35C19.704 35 20.6841 34.9214 21.6403 34.7746V21.7497H26.0174Z" fill="#adff00"></path>
+                        </svg>
+                    </a>
+
+
+                </div>
+
+            </li>
+        </ul>
     </div>
+</div>
 
 
+<div id="content-text">
+    <div class="max-w-container-lg py-5">
+
+        <div class="row">
+            <div class="col-lg-8">
+
+
+
+                <ul class="blog-list mb-5 ps-0">
+
+
+
+
+                    <li class="anti-flash-white">{{ post.body|safe }}</li>
+                </ul>
+
+
+                <div class="">
+
+                    <div class="d-flex justify-content-start ms-1">
+                        <form action="{% url 'blog:like-post' post.pk %}" method="POST">
+                            {% csrf_token %} {% if user.is_authenticated %} {% if liked %}
+                            <button type="submit" , name="post_id" , value="{{ post.id }}" , class="btn btn-sm btn-danger" style="background-color: transparent; border: 0;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-heart-fill" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+                      </svg>
+                  
+                </button>
+
+
+                            <!--  -->
+                            {% else %}
+                            <button type="submit" , name="post_id" , value="{{ post.id }}" , class="btn btn-sm btn-danger" style="background-color: transparent; border: 0;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="rgba(239, 239, 239, 1)" class="bi bi-heart" viewBox="0 0 16 16">
+                    <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                  </svg>
+                </button>
+                            <!--  -->
+                            {% endif %} {% else %}
+                            <a href="{% url 'members:login' %}" class="fc--ufo-green" style="text-decoration: underline!important;">
+                                <small> Login to like </small>
+                            </a> {% endif %}
+
+
+                            <span class="anti-flash-white" style="font-size: 12px;">   {{total_likes}} Likes </span>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 ps-5">
+                <img class="img-fluid" src="{% static 'img/kandance.jpg' %}" alt="Kandance Springs">
+                <hr>
+                <ul>
+                    {% for item in cat_menu %}
+                    <li>
+
+                        <a style="text-transform: capitalize;" class="dropdown-item" href="{%  url 'blog:category' item|slugify|title %}">{{ item }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+
+            </div>
+        </div>
+
+
+    </div>
 </div>
 {% endblock content %}

@@ -4,7 +4,8 @@ from .views import MembersRegisterView, MembersLoginView
 app_name = 'members'
 
 urlpatterns = [
-    path('register/', MembersRegisterView.as_view(), name='register'),
+    path('signup/register/', MembersRegisterView.as_view(), name='register'),
+    # path('register/signup', MembersRegisterView.as_view(), name='signup'),
     path('login/', MembersLoginView.as_view(), name='login'),
 
     # path('', views.BaseIndex, name='index'),

@@ -2,32 +2,34 @@
 <!--  -->
 {% block content %}
 
-<div class="container-fluid px-0">
-    <div class="hero_canvasImageContainer__WQ5Fy" style="background-image:url(../../static/img/The-Django-Stage.jpg);width: 100%;height: auto;">
-        <!-- <img class="w-100" src="{% static 'img/The-Django-Stage.jpg' %}" alt="The Django stage"> -->
-    </div>
-</div>
-<div class="container my-10 text-center">
 
-    <div style="position: absolute;width: 100%;bottom: 0;width: 100%;left: 0;" class="text-center w-100">
-        <h1 class="tangelo hero_title-container__41UbM">
-            Liquid Spirit
-        </h1>
-    </div>
-    <li class="anti-flash-white hero_title-container__42UbM " style="list-style: none;">
-        Register
-    </li>
-    <hr>
+<div id="register-rx5" class="container my-10">
 
-    <div class="form_post">
-        <div class="mt-5 form_style">
-            <form method="Post">
-                {% csrf_token %} {{ form.as_p }}
+    <div class="row">
+        <div class="col-lg-6 d-flex justify-content-center align-items-center">
+            <h1 class="hero_title-container__43UbM tangelo">
+                Liquid Spirit
+            </h1>
+        </div>
+        <div class="col-lg-6">
+            <div class="form_post">
+                <div class="mt-5 form_style">
+                    <form method="Post">
+                        {% csrf_token %} {{ form.as_p }}
 
-                <button class="btn btn-outline-light" style="min-width: 120px;">Register</button>
-            </form>
+                        <button class="btn btn-outline-light" style="min-width: 120px;">Register</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
+
+    <!-- <li class="anti-flash-white hero_title-container__42UbM " style="list-style: none;">
+        Register
+    </li> -->
+
+
+
 
 </div>
 

@@ -12,7 +12,7 @@
 <div class="container my-10  ">
     <!-- <h2 class="anti-flash-white" style="position: absolute;width: 100%;top: 80px;width: 100%;left: 5%;font-weight: 300;">A digital studio making cool shit that performs.</h2> -->
     <div style="position: absolute;width: 100%;bottom: 0;width: 100%;left: 0;" class="text-center w-100">
-        <h1 class="tangelo hero_title-container__41UbM">
+        <h1 class="tangelo hero_title-container__41UbM" style="color:#3600a7!important">
             Liquid Spirit
         </h1>
     </div>
@@ -41,7 +41,7 @@
 
 
                 <ul class="blog-list mb-8">
-                    <a style="text-decoration: underline!important;" href="{% url 'blog:category' post.cat_name|slugify %}">{{ post.cat_name }}</a>
+                    <a style="text-decoration: underline!important;" href="{% url 'blog:category' post.cat_name|slugify|title %}">{{ post.cat_name }}</a>
                     <li class="anti-flash-white ">
                         <h3 class="hero_title-container__42UbM">{{ post.title }}</h3>
                     </li>
@@ -53,6 +53,7 @@
                         </span>
                         <span class="me-5">
                             {% if user.is_authenticated %}
+                            {% if user.id ==  post.author.id %}
                             <div class="d-flex align-items-center">
                                 <a href="{% url 'blog:update-post' post.pk %}">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -67,6 +68,7 @@
                                       </svg>
                                 </a>
                             </div>
+                            {% endif %}
                             {% endif %}
                         
                     </span>
@@ -85,9 +87,14 @@
 
 
         </div>
-        <div class="col-lg-4 ps-5">
-            <img class="img-fluid" src="{% static 'img/kandance.jpg' %}" alt="Kandance Springs">
+        <div class="col-lg-4 ps-5 ">
+            <div class="">
+                <img class="img-fluid mb-5" src="{% static 'img/kandance.jpg' %}" alt="Kandance Springs">
+            </div>
+
+            <img src="{% static 'img/temp/viber-1.jpg' %}" class="img-fluid" alt="">
         </div>
+
 
 
     </div>

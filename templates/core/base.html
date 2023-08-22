@@ -69,7 +69,26 @@
 
 
 
-                <div class="mb-2 mb-lg-0" style="width: 33%;display: flex;justify-content: center;">
+                <div class="mb-2 mb-lg-0" style="width: 33%;display: flex;
+                justify-content: center;">
+
+                    {% if user.is_authenticated %}
+                    <ul class="d-flex align-items-baseline mb-0">
+                        <li style="list-style: none;" class="me-2"><a href="/">Tech</a>
+                            <span aria-hidden="true" class="anti-flash-white ms-2">/</span>
+                        </li>
+                        <li style="list-style: none;" class="me-2"><a href="/">Reviews</a>
+                            <span aria-hidden="true" class="anti-flash-white ms-2">/</span>
+                        </li>
+                        <li style="list-style: none;" class="me-2"><a href="/">Science</a>
+                            <span aria-hidden="true" class="anti-flash-white ms-2">/</span>
+                        </li>
+                        <div class="anti-flash-white" style="margin-top: 0;" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                            {{ user.first_name }}
+                        </div>
+                    </ul>
+                    {% else %}
+
                     <ul class="d-flex align-items-baseline mb-0">
                         <li style="list-style: none;" class="me-2"><a href="/">Tech</a>
                             <span aria-hidden="true" class="anti-flash-white ms-2">/</span>
@@ -87,16 +106,10 @@
                           </svg>
                         </div>
                     </ul>
-
-                    {% if user.is_authenticated %}
-
-                    <!--  -->
-                    {% else %}
-
-                    <!--  -->
                     {% endif %}
-
                 </div>
+
+
 
 
             </div>
@@ -122,10 +135,14 @@
 
     <!-- offcanvas -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+        <!-- offcanvas-header -->
         <div class="offcanvas-header">
-            <h4 class="offcanvas-title" id="offcanvasRightLabel">Liquid Spirit</h4>
+            <h4 class="offcanvas-title" id="offcanvasRightLabel">
+                {% if user.is_authenticated %} {{user.first_name}} {{user.last_name}} {% else %} Liquid Spirit {% endif %}
+            </h4>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
+        <!-- offcanvas-body -->
         <div class="offcanvas-body">
             <ul class="profile-menu ps-0">
                 <form class="d-flex mb-0" role="search">

@@ -24,6 +24,10 @@
                 {% csrf_token %} {{ form.as_p }}
 
                 <button class="btn btn-outline-light" style="min-width: 120px;">Post</button>
+                <script>
+                    var name = "{{ user.id }}";
+                    document.getElementById("sneks").value = name;
+                </script>
             </form>
         </div>
     </div>
