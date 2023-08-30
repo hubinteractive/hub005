@@ -1,6 +1,7 @@
 from django import forms
-
+from django.contrib import admin
 from .models import Post, PostCategory
+from ckeditor.widgets import CKEditorWidget
 
 choices = PostCategory.objects.all().values_list('cat_name', 'cat_name')
 choice_list = []
