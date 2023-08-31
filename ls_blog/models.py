@@ -20,8 +20,9 @@ class PostCategory(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=255)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
-    title_tag = models.CharField(max_length=255, default="My freakin' awesome blog") 
-    body = models.TextField()
+    title_tag = models.CharField(max_length=255, default="My freakin' awesome blog")
+    header_image =  models.ImageField(null=True, blank=True, upload_to="images/")
+    body = models.TextField(null=True, blank=True)
     post_date = models.DateField(auto_now_add=True)
     cat_name = models.CharField(max_length=255, default='uncategorized')
     snippet = models.CharField(max_length=500)

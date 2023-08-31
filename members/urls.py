@@ -1,6 +1,7 @@
 from django.urls import path
 from .views import MembersRegisterView, MembersLoginView, MembersEditView, PasswordsChangeView
 from django.contrib.auth import views as auth_views
+from .views import PasswordSucces
 
 app_name = 'members'
 
@@ -12,10 +13,8 @@ urlpatterns = [
     # path('password/', auth_views.PasswordChangeView.as_view()),
 
     path('password/', PasswordsChangeView.as_view(template_name='registration/password_change.html'), name='change-password'),
-    # path(
-    #     "change-password/",
-    #     auth_views.PasswordChangeView.as_view(template_name="change-password.html"),
-    # ),
+   
+    path('password_success/', PasswordSucces, name='password-success')
 
 
 ]

@@ -148,6 +148,10 @@ h6 {
     padding-left: 0!important;
 }
 
+.change-pass .form-control {
+    max-width: 400px;
+}
+
 small {
     color: var(--anti-flash-white)
 }

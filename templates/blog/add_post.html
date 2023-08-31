@@ -20,7 +20,7 @@
 
     <div class="form_post">
         <div class="mt-5 form_style">
-            <form method="Post">
+            <form method="Post" enctype="multipart/form-data">
                 {% csrf_token %} {{ form.as_p }} {{form.media}}
 
                 <button class="btn btn-outline-light" style="min-width: 120px;">Post</button>
