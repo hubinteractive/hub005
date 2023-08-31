@@ -16,7 +16,7 @@
                 <div class="mt-5 form_style">
                     <form method="Post">
                         {% csrf_token %} {{ form.as_p }}
-
+                        <a href="{% url 'members:change-password' %}" style="color:var(--ufo-green)">Change Password</a>
                         <button class="btn btn-outline-light" style="min-width: 120px;">Update profile</button>
                     </form>
                 </div>

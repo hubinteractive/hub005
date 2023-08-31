@@ -11,7 +11,7 @@ urlpatterns = [
     path('edit_profile/', MembersEditView.as_view(), name='edit-profile'),
     # path('password/', auth_views.PasswordChangeView.as_view()),
 
-    path('password/', PasswordsChangeView.as_view(template_name='registration/password_change.html')),
+    path('password/', PasswordsChangeView.as_view(template_name='registration/password_change.html'), name='change-password'),
     # path(
     #     "change-password/",
     #     auth_views.PasswordChangeView.as_view(template_name="change-password.html"),
