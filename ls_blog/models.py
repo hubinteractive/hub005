@@ -24,8 +24,10 @@ class Post(models.Model):
     body = models.TextField()
     post_date = models.DateField(auto_now_add=True)
     cat_name = models.CharField(max_length=255, default='uncategorized')
+    snippet = models.CharField(max_length=500)
     likes = models.ManyToManyField(User, related_name='blog_posts')
     content = RichTextField(blank=True, null=True)
+    
 
     def total_likes(self):
         return self.likes.count()

@@ -1,0 +1,38 @@
+{% extends "core/base.html" %} {% block title %} Edit Profile | {% endblock title %} {% load static %}
+<!--  -->
+{% block content %}
+
+
+<div id="register-rx5" class="container my-10">
+
+    <div class="row">
+        <div class="col-lg-6 d-flex justify-content-center align-items-center">
+            <h1 class="hero_title-container__43UbM tangelo">
+                Edit profile
+            </h1>
+        </div>
+        <div class="col-lg-6">
+            <div class="form_post">
+                <div class="mt-5 form_style">
+                    <form method="Post">
+                        {% csrf_token %} {{ form.as_p }}
+
+                        <button class="btn btn-outline-light" style="min-width: 120px;">Update profile</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <li class="anti-flash-white hero_title-container__42UbM " style="list-style: none;">
+        Register
+    </li> -->
+
+
+
+
+</div>
+
+
+
+{% endblock content %}

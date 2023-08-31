@@ -130,6 +130,24 @@ h6 {
     margin: 0 auto;
 }
 
+.profile-set {
+    margin-bottom: 3rem;
+}
+
+.profile-set li {
+    margin-bottom: .375rem;
+}
+
+.change-pass li {
+    list-style: none!important;
+    color: var(--anti-flash-white);
+    font-size: .875rem;
+}
+
+.change-pass ul {
+    padding-left: 0!important;
+}
+
 small {
     color: var(--anti-flash-white)
 }

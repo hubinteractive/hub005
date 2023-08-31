@@ -204,7 +204,10 @@
                     <a style="font-size: 2rem;font-weight: 600;" href="">Store</a>
                 </li>
                 {% if user.is_authenticated %}
-                <div style="height: 10vh; margin-top: 3rem;">
+                <div class="profile-set" style="height: 10vh; margin-top: 3rem;">
+                    <li>
+                        <a class="dropdown-item" href="{% url 'members:edit-profile' %}">Edit profile</a>
+                    </li>
                     <li>
                         <a class="dropdown-item" href="{% url 'blog:add-post' %}">Add post</a>
                     </li>

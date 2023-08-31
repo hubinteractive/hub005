@@ -91,11 +91,7 @@ class AddCategory(CreateView):
     # form_class = PostForm
     fields = '__all__'
     # fields = ('title', 'title_tag', 'author', 'body')
-    def get_context_data(self, *args, **kwargs):
-        cat_menu = PostCategory.objects.all()
-        context = super(DeletePost, self).get_context_data(*args, **kwargs)
-        context["cat_menu"] = cat_menu
-        return context
+   
     
 
 def CategoryView(request, cats):

@@ -82,7 +82,11 @@
 
                     </li>
 
-                    <li class="anti-flash-white mb-3">{{ post.body|slice:":1000"|safe }}</li>
+                    <li class="anti-flash-white mb-3">
+                        <a href="{% url 'blog:article-detail' post.pk %}">{{ post.snippet|safe }}
+
+                        </a>
+                    </li>
 
                     <a class="btn btn-outline-light" href="{% url 'blog:article-detail' post.pk %}">Read more</a>
 
