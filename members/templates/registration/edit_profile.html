@@ -20,7 +20,7 @@
 
                     <form method="Post">
                         {% csrf_token %}
-                        <p>@{{ user.bio }}</p>
+                        <p>@{{ user.profileinfo.bio }}</p>
                         {{ form.as_p }}
 
                         <div class="d-block">

@@ -1,0 +1,60 @@
+{% extends "core/base.html" %} {% block title %} Home | {% endblock title %} {% load static %}
+<!--  -->
+
+{% block extrahead %}
+<script>
+    window.CKEDITOR_BASEPATH = '/my_static/ckeditor/ckeditor/';
+</script>
+{{ block.super }} {% endblock %}
+<!--  -->
+{% block content %}
+
+<div class="container-fluid px-0">
+    <div class="hero_canvasImageContainer__WQ5Fy" style="background-image:url(../../static/img/The-Django-Stage.jpg);width: 100%;height: auto;">
+        <!-- <img class="w-100" src="{% static 'img/The-Django-Stage.jpg' %}" alt="The Django stage"> -->
+    </div>
+
+
+</div>
+<div class="container my-10  ">
+    <!-- <h2 class="anti-flash-white" style="position: absolute;width: 100%;top: 80px;width: 100%;left: 5%;font-weight: 300;">A digital studio making cool shit that performs.</h2> -->
+    <div style="position: absolute;width: 100%;bottom: 0;width: 100%;left: 0;" class="text-center w-100">
+        <h1 class="tangelo hero_title-container__41UbM" style="color:#3600a7!important">
+            Profile Index
+        </h1>
+    </div>
+
+
+
+</div>
+<!-- profileinfo -->
+<div class="hub_005_width">
+    <div class="row">
+        <div class="col-lg-8">
+
+            {% for post in object_list %}
+            <p>@{{ post.bio }}</p>
+            <p>@{{ post.user.first_name }}</p>
+            <p>@{{ post.website_url }}</p>
+            <p>@{{ post.facebook_url }}</p>
+            {% endfor %}
+
+
+
+        </div>
+        <div class="col-lg-4 ps-5 ">
+            <div class="">
+                <img class="img-fluid mb-5" src="{% static 'img/kandance.jpg' %}" alt="Kandance Springs">
+            </div>
+
+            <img src="{% static 'img/temp/viber-1.jpg' %}" class="img-fluid" alt="">
+        </div>
+
+
+
+    </div>
+</div>
+
+
+
+{% endblock content %}

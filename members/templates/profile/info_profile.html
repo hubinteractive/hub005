@@ -1,0 +1,41 @@
+ {% extends "core/base.html" %} {% block title %} Add post | {% endblock title %} {% load static %}
+<!--  -->
+{% block content %} {% if user.is_authenticated %}
+<div class="container-fluid px-0">
+    <div class="hero_canvasImageContainer__WQ5Fy" style="background-image:url(../../static/img/The-Django-Stage.jpg);width: 100%;height: auto;">
+
+    </div>
+</div>
+<div class="container my-10 text-center">
+
+    <div style="position: absolute;width: 100%;bottom: 0;width: 100%;left: 0;" class="text-center w-100">
+        <h1 class="tangelo hero_title-container__41UbM">
+            Info Profile
+        </h1>
+    </div>
+    <li class="anti-flash-white hero_title-container__42UbM text-start" style="list-style: none;">
+        Add Post
+    </li>
+    <hr>
+
+    <div class="form_post">
+        <div class="mt-5 form_style">
+            <form method="Post" enctype="multipart/form-data">
+                {% csrf_token %} {{ form.as_p }} {{form.media}}
+
+                <button class="btn btn-outline-light" style="min-width: 120px;">Post</button>
+                <script>
+                    var name = "{{ user.id }}";
+                    document.getElementById("sneks").value = name;
+                </script>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+{% else %}
+<div class="container my-10 text-center">
+    <h1 class="anti-flash-white">You are not allowed here!!!</h1>
+</div>
+{% endif %} {% endblock content %}
