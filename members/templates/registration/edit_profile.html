@@ -17,6 +17,7 @@
                             display: none;
                         }
                     </style>
+                    <p>@{{ user.ProfileInfo.bio }}</p>
                     <form method="Post">
                         {% csrf_token %} {{ form.as_p }}
 
