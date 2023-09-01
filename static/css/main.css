@@ -176,3 +176,7 @@ textarea {
     resize: vertical;
     min-width: 600px;
 }
+
+label {
+    color: var(--anti-flash-white)
+}

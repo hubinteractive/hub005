@@ -90,6 +90,9 @@
 
                 <ul class="blog-list mb-5 ps-0">
                     <li class="anti-flash-white">{{ post.body|safe }}</li>
+                    <li class="anti-flash-white">
+                        <img class="img-fluid" src="{{ post.header_image.url }}" alt="">
+                    </li>
                     <li class="anti-flash-white">{{ post.content|safe }}</li>
                 </ul>
 
