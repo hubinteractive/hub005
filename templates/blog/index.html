@@ -82,13 +82,13 @@
 
                     </li>
                     {% if post.header_image %}
-                    <li class="anti-flash-white">
-                        <img class="img-fluid" src="{{ post.header_image.url }}" alt="">
+                    <li class="anti-flash-white mb-3">
+                        <img class="img-idnx" src="{{ post.header_image.url }}" alt="">
                     </li>
                     {% endif %}
 
                     <li class="anti-flash-white mb-3">
-                        <a href="{% url 'blog:article-detail' post.pk %}">{{ post.snippet|safe }}
+                        <a href="{% url 'blog:article-detail' post.pk %}"><small> {{ post.snippet|safe }}</small>
 
                         </a>
                     </li>
