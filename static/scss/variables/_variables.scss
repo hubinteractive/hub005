@@ -109,28 +109,8 @@ a {
     color: var(--anti-flash-white);
 }
 
-#content-text p {
-    // color: var(--bg-dark-mode-st1);
-    font-size: 1.3rem;
-    font-weight: 300;
-}
-
-// #content-text span {
-//     color: var(--bg-dark-mode-st1);
-// }
-#content-text li a {
-    color: var(--anti-flash-white);
-    font-size: 1.2rem;
-}
-
-#content-text ul {
-    padding-left: 0;
-}
-
-#content-text li {
-    list-style: none;
-    padding: .375rem 0;
-    border-bottom: solid 1px rgba(255, 255, 255, .22);
+.bg-smoky-black {
+    color: var(--bg-smoky-black);
 }
 
 .deep-cerise {

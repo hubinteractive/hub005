@@ -54,9 +54,9 @@
                     </li>
                     <li class="anti-flash-white"><small> Published: {{ post.post_date }}</small></li>
 
-                    <li class="anti-flash-white mb-5 d-flex justify-content-between border-bottom py-3">
+                    <li class="anti-flash-white mb-5 d-flex justify-content-between  py-3">
                         <span>
-                            {{ post.author.first_name }} {{ post.author.last_name }} | <small> {{ post.author.email }}</small>
+                           By: <span>{{ post.author.first_name }} {{ post.author.last_name }}</span> - <small> {{ post.author.email }}</small>
                         </span>
                         <span class="me-5">
                             {% if user.is_authenticated %}
@@ -81,6 +81,11 @@
                     </span>
 
                     </li>
+                    {% if post.header_image %}
+                    <li class="anti-flash-white">
+                        <img class="img-fluid" src="{{ post.header_image.url }}" alt="">
+                    </li>
+                    {% endif %}
 
                     <li class="anti-flash-white mb-3">
                         <a href="{% url 'blog:article-detail' post.pk %}">{{ post.snippet|safe }}
