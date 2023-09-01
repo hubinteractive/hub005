@@ -17,9 +17,11 @@
                             display: none;
                         }
                     </style>
-                    <p>@{{ user.ProfileInfo.bio }}</p>
+
                     <form method="Post">
-                        {% csrf_token %} {{ form.as_p }}
+                        {% csrf_token %}
+                        <p>@{{ user.bio }}</p>
+                        {{ form.as_p }}
 
                         <div class="d-block">
                             <button class="btn btn-outline-light" style="min-width: 120px;">Update profile</button>
