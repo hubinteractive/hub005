@@ -6,9 +6,16 @@
     <div class="row">
         <div class="col-lg-6 d-flex justify-content-center align-items-center">
             <h1 class="hero_title-container__43UbM tangelo">
-                Edit profile
+                Basic info
             </h1>
         </div>
+        <nav class="nav fixed-bottom d-flex justify-content-end">
+
+
+            <a class="ms-2 mb-3" href="{% url 'members:info_profile' %}" style="color:var(--anti-flash-white); background-color:rgba(82, 0, 255, 0.82);text-align: center;padding: .375rem 1rem;border: 0;">Add delails</a>
+            <a class="ms-2 mb-3" href="{% url 'members:change-password' %}" style="color:var(--anti-flash-white); background-color:rgba(82, 0, 255, 0.82);text-align: center;padding: .375rem 1rem;border: 0;">Change Password</a>
+
+        </nav>
         <div class="col-lg-6">
             <div class="form_post">
                 <div class="mt-5 form_style">
@@ -27,7 +34,7 @@
                             <button class="btn btn-outline-light" style="min-width: 120px;">Update profile</button>
                             <br>
                             <br>
-                            <a class="" href="{% url 'members:change-password' %}" style="color:var(--ufo-green)">Change Password</a>
+
                         </div>
                     </form>
                 </div>

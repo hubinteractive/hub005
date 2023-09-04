@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 
 class ProfileInfo(models.Model):
@@ -16,3 +17,7 @@ class ProfileInfo(models.Model):
 
     def __str__(self):
         return str(self.user) 
+    
+    def get_absolute_url(self):
+        # return reverse('blog:article-detail', args=(str(self.id)))
+        return reverse('members:index')

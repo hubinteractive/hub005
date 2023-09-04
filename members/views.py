@@ -4,11 +4,11 @@ from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
 from .forms import SignUpForm, EditProfileForm, PasswordChangingForm
-from django.views.generic import ListView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.models import User
 from ls_blog.models import Post, PostCategory
 from .models import ProfileInfo
-from .forms import ProfileInfoForm
+from .forms import ProfileInfoForm, ProfileUpdateForm, ProfileCreteForm
 
 
 
@@ -27,7 +27,7 @@ class MembersLoginView(generic.CreateView):
 
 class MembersEditView(generic.UpdateView):
     form_class = EditProfileForm
-    template_name = 'registration/edit_profile.html'
+    template_name = 'profile/edit_profile.html'
     success_url =reverse_lazy('blog:index')
 
     def get_object(self):
@@ -45,16 +45,27 @@ def PasswordSucces(request):
 
 class ProfileIndex(ListView):
     model = ProfileInfo
+    
+    template_name = 'profile/profile_index.html'
+    # ordering = ['-post_date']
+    # ordering = ['-id']
+    # def get_context_data(self, *args, **kwargs):
+    #     cat_menu = PostCategory.objects.all()
+    #     context = super(ProfileIndex, self).get_context_data(*args, **kwargs)
+    #     context["cat_menu"] = cat_menu
+    #     return context
+
+class PIndex(ListView):
+    model = ProfileInfo
     template_name = 'profile/index.html'
     # ordering = ['-post_date']
-    ordering = ['-id']
-    def get_context_data(self, *args, **kwargs):
-        cat_menu = PostCategory.objects.all()
-        context = super(ProfileIndex, self).get_context_data(*args, **kwargs)
-        context["cat_menu"] = cat_menu
-        return context
+    # ordering = ['-id']
+    # def get_context_data(self, *args, **kwargs):
+    #     cat_menu = PostCategory.objects.all()
+    #     context = super(ProfileIndex, self).get_context_data(*args, **kwargs)
+    #     context["cat_men
     
-class ProfileInfo(CreateView):
+class ProfileInfo(ListView):
     model = ProfileInfo
     template_name = 'profile/info_profile.html'
     form_class = ProfileInfoForm
@@ -65,3 +76,45 @@ class ProfileInfo(CreateView):
         context = super(ProfileInfo, self).get_context_data(*args, **kwargs)
         context["cat_menu"] = cat_menu
         return context
+
+class ProfileCreateView(CreateView):
+    model = Post
+    template_name = 'profile/profile_create.html'
+    form_class = ProfileUpdateForm
+    # fields = '__all__'
+    # fields = ('title', 'title_tag', 'author', 'body')
+    def get_context_data(self, *args, **kwargs):
+        cat_menu = PostCategory.objects.all()
+        context = super(ProfileCreateView, self).get_context_data(*args, **kwargs)
+        context["cat_menu"] = cat_menu
+        return context
+    
+
+class ProfileEdit(UpdateView):
+    model = ProfileInfo
+    template_name = 'profile/edit_profile_details.html'
+    form_class = ProfileUpdateForm
+    # fields = '__all__'
+    # fields = ('title', 'title_tag', 'body')
+    def get_context_data(self, *args, **kwargs):
+        cat_menu = PostCategory.objects.all()
+        context = super(ProfileEdit, self).get_context_data(*args, **kwargs)
+        context["cat_menu"] = cat_menu
+        return context
+    
+
+    
+
+    
+class ProfileDelete(DeleteView):
+    model = ProfileInfo
+    template_name = 'profile/delete_profile.html'
+    success_url = reverse_lazy('blog:index')
+    
+
+    def get_context_data(self, *args, **kwargs):
+        cat_menu = PostCategory.objects.all()
+        context = super(ProfileDelete, self).get_context_data(*args, **kwargs)
+        context["cat_menu"] = cat_menu
+        return context
+    

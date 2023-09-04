@@ -49,6 +49,24 @@ class PasswordChangingForm(PasswordChangeForm):
         fields = ('old_password', 'new_password1', 'new_password2' )
 
 
+
+class ProfileCreteForm(forms.ModelForm):
+    class Meta:
+        model = ProfileInfo
+        fields ='__all__'
+        # fields = ('title', 'title_tag', 'author','header_image', 'snippet', 'content', 'cat_name', 'body', )
+
+        # widgets = {
+        #     'title': forms.TextInput(attrs={'class':'form-control'}),  
+        #     'title_tag': forms.TextInput(attrs={'class':'form-control'}),  
+        #     'author': forms.TextInput(attrs={'class':'form-control', 'value': '', 'id': 'sneks', 'type':'hidden'}), 
+        #      'snippet': forms.Textarea(attrs={'class':'form-control'}),
+        #     # 'author': forms.Select(attrs={'class':'form-control'}),  
+        #     'cat_name': forms.Select(choices=choice_list, attrs={'class':'form-control'}),  
+        #     'body': forms.Textarea(attrs={'class':'form-control'}),  
+        # }
+
+
 class ProfileInfoForm(forms.ModelForm):
     class Meta:
         model = ProfileInfo
@@ -64,5 +82,22 @@ class ProfileInfoForm(forms.ModelForm):
         #     'cat_name': forms.Select(choices=choice_list, attrs={'class':'form-control'}),  
         #     'body': forms.Textarea(attrs={'class':'form-control'}),  
         # }
+
+class ProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = ProfileInfo
+        fields = '__all__'
+        # fields = ('title', 'title_tag', 'author','header_image', 'snippet', 'content', 'cat_name', 'body', )
+
+        # widgets = {
+        #     'title': forms.TextInput(attrs={'class':'form-control'}),  
+        #     'title_tag': forms.TextInput(attrs={'class':'form-control'}),  
+        #     'author': forms.TextInput(attrs={'class':'form-control', 'value': '', 'id': 'sneks', 'type':'hidden'}), 
+        #      'snippet': forms.Textarea(attrs={'class':'form-control'}),
+        #     # 'author': forms.Select(attrs={'class':'form-control'}),  
+        #     'cat_name': forms.Select(choices=choice_list, attrs={'class':'form-control'}),  
+        #     'body': forms.Textarea(attrs={'class':'form-control'}),  
+        # }
+
 
  

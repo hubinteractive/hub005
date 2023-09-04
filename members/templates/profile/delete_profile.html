@@ -1,4 +1,4 @@
- {% extends "core/base.html" %} {% block title %} Delete post | {% endblock title %} {% load static %}
+{% extends "core/base.html" %} {% block title %} Delete post | {% endblock title %} {% load static %}
 <!--  -->
 {% block content %} {% if user.is_authenticated %} {% if user.id == post.author.id %}
 
@@ -6,7 +6,7 @@
 
 
     <li class="anti-flash-white hero_title-container__42UbM " style="list-style: none;text-transform: uppercase;font-size: 14px;">
-        Delete Post
+        Delete Profile
     </li>
     <hr>
     <h3 class="anti-flash-white">Delete: {{ post.title }}</h3>

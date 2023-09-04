@@ -134,6 +134,10 @@
     <script type="text/javascript" src="{% static " ckeditor/ckeditor-init.js " %}"></script>
     <script type="text/javascript" src="{% static " ckeditor/ckeditor/ckeditor.js " %}"></script>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script src="{% static 'js/app.js' %}"></script>
+
 
     <!-- offcanvas -->
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
@@ -205,8 +209,10 @@
                 </li>
                 {% if user.is_authenticated %}
                 <div class="profile-set" style="height: 10vh; margin-top: 3rem;">
+
+
                     <li>
-                        <a class="dropdown-item" href="{% url 'members:edit-profile' %}">Edit profile</a>
+                        <a class="dropdown-item" href="{% url 'members:index' %}">{% if user.is_authenticated %} {{user.first_name}} {{user.last_name}} {% else %} Liquid Spirit {% endif %}</a>
                     </li>
                     <li>
                         <a class="dropdown-item" href="{% url 'blog:add-post' %}">Add post</a>

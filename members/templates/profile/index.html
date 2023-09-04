@@ -9,49 +9,172 @@
 <!--  -->
 {% block content %}
 
-<div class="container-fluid px-0">
-    <div class="hero_canvasImageContainer__WQ5Fy" style="background-image:url(../../static/img/The-Django-Stage.jpg);width: 100%;height: auto;">
-        <!-- <img class="w-100" src="{% static 'img/The-Django-Stage.jpg' %}" alt="The Django stage"> -->
-    </div>
-
-
-</div>
-<div class="container my-10  ">
-    <!-- <h2 class="anti-flash-white" style="position: absolute;width: 100%;top: 80px;width: 100%;left: 5%;font-weight: 300;">A digital studio making cool shit that performs.</h2> -->
-    <div style="position: absolute;width: 100%;bottom: 0;width: 100%;left: 0;" class="text-center w-100">
-        <h1 class="tangelo hero_title-container__41UbM" style="color:#3600a7!important">
-            Profile Index
-        </h1>
-    </div>
-
-
-
-</div>
-<!-- profileinfo -->
-<div class="hub_005_width">
-    <div class="row">
-        <div class="col-lg-8">
-
-            {% for post in object_list %}
-            <p>@{{ post.bio }}</p>
-            <p>@{{ post.user.first_name }}</p>
-            <p>@{{ post.website_url }}</p>
-            <p>@{{ post.facebook_url }}</p>
-            {% endfor %}
-
+<div id="profile-205">
+    <div class="hub_005_width px-0 position-relative pb-5">
+        <div class="hero_canvasImageContainer__WQ5Fy" style="background-image:url(../../static/img/The-Django-Stage.jpg);width: 100%; height: 500%;">
+            <!-- <img class="w-100" src="{% static 'img/The-Django-Stage.jpg' %}" alt="The Django stage"> -->
 
 
         </div>
-        <div class="col-lg-4 ps-5 ">
-            <div class="">
-                <img class="img-fluid mb-5" src="{% static 'img/kandance.jpg' %}" alt="Kandance Springs">
+        <div class="hub_005_width px-5" style="position: absolute;bottom: -55px; left: 0;width: 100%;">
+
+            <div class="d-flex justify-content-between align-items-end border-bottom py-3">
+
+                <div class="w-100 d-flex align-items-end">
+
+                    <div>
+                        <img class="img-profile" src="{% static 'img/profile/profile-admin.png' %}" alt="">
+                    </div>
+                    <h2 class="anti-flash-white mb-0">
+                        <p>@{{ user.first_name }} {{ user.last_name }}</p>
+                    </h2>
+                </div>
+
+                <div style="width: auto; margin-bottom: 1rem;" class="d-flex align-items-end pe-5">
+
+                    <a style="margin-top: 0;" class="btn btn-outline-light me-3" href="{% url 'blog:add-post' %}">Add post</a>
+                    <a style="margin-top: 0;" class="btn btn-outline-light" href="{% url 'members:edit-profile' %}">Edit profile</a>
+
+                </div>
             </div>
 
-            <img src="{% static 'img/temp/viber-1.jpg' %}" class="img-fluid" alt="">
         </div>
+    </div>
+
+    <!-- profileinfo -->
+    <div class="hub_005_width">
+        <ul class="nav nav-underline pt-8 pb-5">
+            <li class="nav-item position-relative">
+                <a class="nav-link link_text active" aria-current="page" href="#">Intro</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Posts</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Music</a>
+            </li>
+
+        </ul>
+        <!-- <div class="row">
+            <div class="col-lg-3">
+                <div class="">
+                    <img class="img-fluid mb-5" src="{% static 'img/kandance.jpg' %}" alt="Kandance Springs">
+                </div>
+
+                <h2 class="mt-3">Menu</h2>
+            </div>
+
+            <div class="col-lg-9">
 
 
 
+
+
+
+
+            </div>
+
+
+
+        </div> -->
+
+        <div class="site-wrapper">
+
+            <section class="tabs-wrapper">
+                <div class="">
+                    <div class="tabs-blockx">
+                        <div id="tabs-section" class="tabs">
+                            <div class="col-lg-3">
+                                <ul class="tab-head">
+                                    <h2 class="mb-3">Say Hi!</h2>
+                                    <hr>
+                                    <li>
+                                        <a href="#tab-1" class="tab-link active"> 
+                                            Overview
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#tab-2" class="tab-link"> 
+                                            Work an education
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#tab-3" class="tab-link"> 
+                                            Contact and basic info
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#tab-4" class="tab-link"> 
+                                              Details about {{ user.first_name }}
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#tab-5" class="tab-link"> <span class="material-icons tab-icon">toll</span> <span class="tab-label">Blush</span></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-lg-9">
+                                <section id="tab-1" class="tab-body entry-content active active-content">
+                                    <h2>Overview
+                                        <p>User id: {{user.id}}</p>
+                                        <p>User name: {{user.username }}</p>
+                                    </h2>
+
+                                    <!--  -->
+                                    {% for post in object_list %} {% if user.id == post.user.id %}
+
+                                    <p>{{ post.user.email }}</p>
+                                    <p>{{ post.user.username }}</p>
+                                    <p>{{ post.bio }}</p>
+                                    <p>{{ post.user.first_name }} {{ post.user.last_name }}</p>
+                                    {% if profile_pic %}
+                                    <img class="img-fluid mb-3" src="{{post.profile_pic.url}}" style="max-width: 400px;" alt=""> {% endif %}
+                                    <p>Website: {{ post.website_url }}</p>
+                                    <p>Social: </p>
+                                    <a href="{{ post.facebook_url }}">
+                                        <svg class="" width="34" height="34" viewBox="0 0 40 40" fill="white" xmlns="http://www.w3.org/2000/svg"><title>Facebook</title><path d="M26.0174 21.7497L26.8495 16.3604H21.6403V12.8637C21.6403 11.3906 22.3668 9.95151 24.7019 9.95151H27.0714V5.36435C27.0714 5.36435 24.9212 5 22.866 5C18.5761 5 15.7707 7.57929 15.7707 12.2529V16.3604H11V21.7497H15.7707V34.7746C16.727 34.924 17.707 35 18.7055 35C19.704 35 20.6841 34.9214 21.6403 34.7746V21.7497H26.0174Z" fill="#3cffd0"></path>
+                                        </svg>
+                                    </a>
+                                    <br><br>
+                                    <a href="{% url 'members:delete-profile' post.pk %}">Delete profile</a>
+                                    <hr> {% endif %} {% endfor %}
+
+                                    <a class="nav-link active" aria-current="page" href="{% url 'members:edit-profile-details' user.id %}" style="color:var(--ufo-green)">Edit details</a>
+
+                                </section>
+
+                                <section id="tab-2" class="tab-body entry-content">
+                                    <h2>Work an education...</h2>
+                                </section>
+
+                                <section id="tab-3" class="tab-body entry-content">
+                                    <h2>Contact and basic info... </h2>
+
+                                </section>
+
+                                <section id="tab-4" class="tab-body entry-content">
+                                    <h2>
+                                        Details about {{ user.first_name }} {{ user.last_name }}
+                                    </h2>
+
+                                </section>
+
+                                <section id="tab-5" class="tab-body entry-content">
+                                    <h2>Blush</h2>
+                                    <p>Putting on blush can have a huge effect on your overall look, and I personally never leave it out of my makeup routine. Blush is especially necessary if you’re wearing a foundation with more opaque coverage, which can
+                                        sometimes leave your complexion looking a little bit flat.</p>
+                                    <p>Blush comes in powder, gel, and cream formulations, with powder being the most popular. Recently, though, cream and gel blush have become very popular as well.</p>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <footer>
+
+
+            </footer>
+        </div>
     </div>
 </div>
 
