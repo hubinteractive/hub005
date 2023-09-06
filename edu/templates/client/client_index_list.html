@@ -1,0 +1,104 @@
+{% extends "core/base.html" %} {% block title %} Home | {% endblock title %} {% load static %}
+<!--  -->
+
+{% block extrahead %}
+<script>
+    window.CKEDITOR_BASEPATH = '/my_static/ckeditor/ckeditor/';
+</script>
+{{ block.super }} {% endblock %}
+<!--  -->
+{% block content %}
+
+<section>
+    <div id="profile-205" class="hub_005_width py-10">
+
+        <div class="row">
+
+            <div class="col-lg-9">
+                <section id="tab-1" class="tab-body entry-content active active-content">
+                    <h2 class="anti-flash-white">Clients</h2>
+                    {% for post in object_list %}
+                    <hr>
+                    <!-- card -->
+                    <div class="card mb-3" style="max-width: 75%;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                {% if profile_pic %}
+                                <img class="img-fluid mb-3" src="{{post.profile_pic.url}}" style="max-width: 400px;" alt=""> {% endif %}
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <div class="">
+                                        <h5 class="card-title anti-flash-white mb-2">
+                                            {{ post.user.first_name }} {{ post.user.last_name }}
+
+                                        </h5>
+                                        <a href="#"><small> E-mail: {{ post.user.email }}</small></a>
+
+                                    </div>
+                                    <div class="social-x">
+                                        <p>Social: </p>
+                                        {% if post.facebook_url %}
+                                        <a class="social-links" href="{{ post.facebook_url }}">
+                                       Facebook
+                                        </a> {% endif %}
+                                        <!--  -->
+                                        {% if post.twitter_url %}
+                                        <a class="social-links" href="{{ post.twitter_url }}">
+                                        Twitter 
+                                        </a> {% endif %}
+                                        <!--  -->
+                                        <!--  -->
+                                        {% if post.instagram_url %}
+                                        <a class="social-links" href="{{ post.instagram_url }}">
+                                        Instagram 
+                                        </a> {% endif %}
+                                        <!--  -->
+                                        <!--  -->
+                                        {% if post.linkedin_url %}
+                                        <a class="social-links" href="{{ post.linkedin_url }}">
+                                        Linkedin
+                                        </a> {% endif %}
+                                        <!--  -->
+                                        <!--  -->
+                                        {% if post.github_url %}
+                                        <a class="social-links" href="{{ post.github_url }}">
+                                        Github
+                                        </a> {% endif %}
+                                        <!--  -->
+                                        <!--  -->
+                                        {% if post.youtube_url %}
+                                        <a class="social-links" href="{{ post.youtube_url }}">
+                                        Youtube 
+                                        </a> {% endif %}
+                                        <!--  -->
+
+                                        <hr>
+                                    </div>
+                                    <!-- <p>{{ post.user.username }}</p> -->
+                                    <p>{{ post.bio }}</p>
+
+                                    <a class="nav-link aquamarine-link" aria-current="page" href="{% url 'edu:client-profile-details-page' post.user.client.id %}">View client profile</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr>
+                    <!--  -->
+                    {% endfor %}
+
+
+            </div>
+            <div class="col-lg-3">
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+    </section>
+
+
+    {% endblock content %}

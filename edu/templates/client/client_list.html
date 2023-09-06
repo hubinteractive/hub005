@@ -1,0 +1,27 @@
+{% extends "core/base.html" %} {% block title %} Home | {% endblock title %} {% load static %}
+<!--  -->
+
+{% block extrahead %}
+<script>
+    window.CKEDITOR_BASEPATH = '/my_static/ckeditor/ckeditor/';
+</script>
+{{ block.super }} {% endblock %}
+<!--  -->
+{% block content %}
+
+
+<div class="container my-10 text-center">
+
+    <div class="anti-flash-white hero_title-container__42UbM text-start" style="list-style: none;">
+        Client list...
+    </div>
+    <hr>
+    <!--  -->{{user.id}} {{user.first_name}} {% for post in object_list %}
+
+    <p class="anti-flash-white">@{{ post.user.first_name }} {{ post.bio }}</p>
+
+    {% endfor %}
+
+</div>
+
+{% endblock content %}

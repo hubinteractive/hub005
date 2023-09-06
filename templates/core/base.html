@@ -176,9 +176,9 @@
                         <div class="card card-body">
                             <ul style="padding-left: 0;">
                                 <li>
-                                    <a class="anti-flash-white" style="font-size: 1.5rem;" href="#">
-                                    All Podcasts
-                                </a>
+                                    <a class="anti-flash-white" style="font-size: 1.5rem;" href="{% url 'edu:client-list' %}">
+                                        Education
+                                    </a>
                                 </li>
                                 <li>
                                     <a class="anti-flash-white" style="font-size: 1.5rem;" href="#">
@@ -212,7 +212,7 @@
 
 
                     <li>
-                        <a class="dropdown-item" href="{% url 'members:index' %}">{% if user.is_authenticated %} {{user.first_name}} {{user.last_name}} {% else %} Liquid Spirit {% endif %}</a>
+                        <a class="dropdown-item" href="{% url 'edu:client-profile-details-page' user.client.user.id %}">{% if user.is_authenticated %} {{user.first_name}} {{user.last_name}} {% else %} Liquid Spirit {% endif %}</a>
                     </li>
                     <li>
                         <a class="dropdown-item" href="{% url 'blog:add-post' %}">Add post</a>

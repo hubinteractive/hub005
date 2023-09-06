@@ -20,7 +20,7 @@
             position: relative;
             background-image: url(../../static/img/The-Django-Stage.jpg);
             width: 100%;
-            height: 85vh;
+            height: 75vh;
         }
         
         .hero_title-container__41UbM {
@@ -33,6 +33,15 @@
         .hero_title-container__42UbM {
             opacity: 1;
             font-size: 3.4708333333vw;
+            /* text-align: center; */
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: 1px;
+        }
+        
+        .display-100 {
+            opacity: 1;
+            font-size: 2.4708333333vw;
             /* text-align: center; */
             font-weight: 700;
             line-height: 1.1;

@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ls_blog.apps.LsBlogConfig',
     'members.apps.MembersConfig',
+    'edu.apps.EduConfig',
     'ckeditor',
     'ckeditor_uploader',
 ]

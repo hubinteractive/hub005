@@ -58,6 +58,7 @@
     --danger-color: RGBA(220, 53, 69, 41);
     --bs-offcanvas-bg: rgba(0, 0, 0, .82);
     --ls-alizarin: rgba(220, 53, 69, 1);
+    --ls-aquamarine: rgba(60, 255, 208, 1)
 }
 
 $base-font-size: 8.5rem;
@@ -107,6 +108,38 @@ a {
 
 .anti-flash-white {
     color: var(--anti-flash-white);
+}
+
+.aquamarine-link {
+    color: var(--ls-aquamarine)!important;
+    text-decoration: underline!important;
+}
+
+.aquamarine {
+    color: var(--ls-aquamarine)!important;
+}
+
+.social-links {
+    border-right: solid 1px var(--ls-aquamarine);
+    padding: .0 .5rem;
+    color: var(--ls-aquamarine)!important;
+    font-size: .915rem!important;
+}
+
+.social-x a:last-child {
+    border-right: none!important;
+}
+
+.social-aquamarine-fb {
+    fill: var(--ls-aquamarine)!important;
+    width: 34px;
+    height: 34px;
+}
+
+.social-aquamarine-x {
+    fill: var(--ls-aquamarine)!important;
+    width: 28px;
+    height: 28px;
 }
 
 .bg-smoky-black {

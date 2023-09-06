@@ -1,0 +1,14 @@
+{% extends "core/base.html" %} {% block title %} Home | {% endblock title %} {% load static %}
+<!--  -->
+
+{% block extrahead %}
+<script>
+    window.CKEDITOR_BASEPATH = '/my_static/ckeditor/ckeditor/';
+</script>
+{{ block.super }} {% endblock %}
+<!--  -->
+{% block content %}
+<div class="container my-10">
+    <h1 class="anti-flash-white"> Education... </h1>
+</div>
+{% endblock content %}

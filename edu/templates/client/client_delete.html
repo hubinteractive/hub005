@@ -1,0 +1,32 @@
+{% extends "core/base.html" %} {% block title %} Delete post | {% endblock title %} {% load static %}
+<!--  -->
+{% block content %} {% if user.is_authenticated %} {% if user.id == client.user.id %}
+
+<div class="hub_005_width my-10">
+
+
+    <li class="anti-flash-white hero_title-container__42UbM " style="list-style: none;text-transform: uppercase;font-size: 14px;">
+        Delete Client...
+    </li>
+    <hr>
+    <h3 class="anti-flash-white">Delete: {{ post.title }}</h3>
+    <div class="form_post">
+        <div class="mt-5 form_style">
+            <form method="Post">
+                {% csrf_token %}
+                <div class="d-block">
+                    <div class="mb-3">
+                        <strong class="anti-flash-white">Are you sure you wont to delete this client</strong>
+                    </div>
+                    <button class="btn btn-outline-light">Delete client</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+{% endif %} {% else %}
+<div class="container my-10 text-center">
+    <h1 class="anti-flash-white">You are not allowed here!!!</h1>
+</div>
+{% endif %} {% endblock content %}

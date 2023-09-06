@@ -1,0 +1,25 @@
+ {% extends "core/base.html" %} {% block title %} Add post | {% endblock title %} {% load static %}
+<!--  -->
+{% block content %}
+
+
+<div class="container my-10 text-center">
+
+    <div class="anti-flash-white hero_title-container__42UbM text-start" style="list-style: none;">
+        Client Create
+    </div>
+    <hr>
+
+    <div class="form_post">
+        <div class="mt-5 form_style">
+            <form method="Post" enctype="multipart/form-data">
+                {% csrf_token %} {{ form.as_p }} {{form.media}}
+
+                <button class="btn btn-outline-light" style="min-width: 120px;">Create client info</button>
+
+            </form>
+        </div>
+    </div>
+
+</div>
+{% endblock content %}
