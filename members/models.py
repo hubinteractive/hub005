@@ -24,9 +24,9 @@ class ProfileInfo(models.Model):
     
 class Client(models.Model):
     user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
-    bio = models.TextField()
+    bio = models.TextField(default='No bio')
     profile_pic =  models.ImageField(null=True, blank=True, upload_to="images/profile")
-    website_url = models.CharField(max_length=255, null=True, blank=True)
+    website_url = models.CharField(max_length=255, null=True, blank=True, default='https://')
     twitter_url = models.CharField(max_length=255, null=True, blank=True)
     instagram_url = models.CharField(max_length=255, null=True, blank=True)
     facebook_url = models.CharField(max_length=255, null=True, blank=True)
@@ -38,5 +38,5 @@ class Client(models.Model):
         return str(self.user) 
     
     def get_absolute_url(self):
-        # return reverse('blog:article-detail', args=(str(self.id)))
-        return reverse('edu:client-list')
+        # return reverse('members:client-profile-details-page', args=(str(self.id)))
+        return reverse('members:index')

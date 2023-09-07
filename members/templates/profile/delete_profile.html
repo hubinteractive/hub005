@@ -1,6 +1,12 @@
 {% extends "core/base.html" %} {% block title %} Delete post | {% endblock title %} {% load static %}
 <!--  -->
-{% block content %} {% if user.is_authenticated %} {% if user.id == post.author.id %}
+{% block content %} {% if user.is_authenticated %}
+
+<div class="hub_005_width py-10">
+    <p class="anti-flash-white py-1">User id: {{ user.id }}</p>
+    <p class="anti-flash-white py-1">User name: {{ user.first_name }}</p>
+</div>
+{% if user.id %}
 
 <div class="hub_005_width my-10">
 

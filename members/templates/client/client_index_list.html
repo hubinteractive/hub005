@@ -38,6 +38,7 @@
                                     </div>
                                     <div class="social-x">
                                         <p>Social: </p>
+                                        <p>Q{{page_client}}</p>
                                         {% if post.facebook_url %}
                                         <a class="social-links" href="{{ post.facebook_url }}">
                                        Facebook
@@ -76,9 +77,23 @@
                                         <hr>
                                     </div>
                                     <!-- <p>{{ post.user.username }}</p> -->
-                                    <p>{{ post.bio }}</p>
+                                    <p>{{ post.bio|safe }}</p>
+                                    <!--  -->
+                                    <p></p>
+                                    <p>User: {{user.id}}</p>
+                                    <p>Client: {{post.user.client.id}}</p>
 
-                                    <a class="nav-link aquamarine-link" aria-current="page" href="{% url 'edu:client-profile-details-page' post.user.client.id %}">View client profile</a>
+                                    <!--  -->
+
+                                    <div class="d-flex">
+                                        <a class="nav-link aquamarine-link" aria-current="page" href="#">Profile</a>
+
+                                        <a class="nav-link ms-2 aquamarine-link" aria-current="page" href="{% url 'members:client-profile-details-page' post.user.client.id %}">View client profile</a>
+                                    </div>
+                                    <!--  -->
+                                    <!--  -->
+
+
                                 </div>
                             </div>
                         </div>

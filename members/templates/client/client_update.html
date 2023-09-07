@@ -1,8 +1,7 @@
  {% extends "core/base.html" %} {% block title %} Add post | {% endblock title %} {% load static %}
 <!--  -->
-{% block content %}
 
-
+{% block content %} {% if user.id == client.user.id %}
 <div class="container my-10 text-center">
 
     <div class="anti-flash-white hero_title-container__42UbM text-start" style="list-style: none;">
@@ -21,5 +20,11 @@
         </div>
     </div>
 
+</div>
+{% else %}
+<div class="container py-10 text-center">
+    <h2 class="anti-flash-white">
+        This is not your profile you can't edit it!!! {% endif %}
+    </h2>
 </div>
 {% endblock content %}

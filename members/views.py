@@ -48,36 +48,61 @@ def PasswordSucces(request):
 
 
 
+# Client
+# class ClientIndexView(ListView):
+#     model = User
+#     template_name = 'client/client_index_list.html'
 
-class ProfileIndex(ListView):
-    model = Client
-    template_name = 'profile/profile_index.html'
-
-    # ordering = ['-post_date']
-    # ordering = ['-id']
-    # def get_context_data(self, *args, **kwargs):
-    #     cat_menu = PostCategory.objects.all()
-    #     context = super(ProfileIndex, self).get_context_data(*args, **kwargs)
-    #     context["cat_menu"] = cat_menu
-    #     return context
-class ProfileDetailView(DetailView):
-    model = ProfileInfo
-    template_name = 'profile/profile_details.html'
-
-
-
-# class PIndex(ListView):
-#     model = ProfileInfo
-#     template_name = 'profile/index.html'
 #     # ordering = ['-post_date']
 #     # ordering = ['-id']
 #     # def get_context_data(self, *args, **kwargs):
 #     #     cat_menu = PostCategory.objects.all()
 #     #     context = super(ProfileIndex, self).get_context_data(*args, **kwargs)
-#     #     context["cat_men
+#     #     context["cat_menu"] = cat_menu    
+#     #     return context
+
+class ClientProfilePage(DetailView):
+    model = Client
+    template_name = 'profile/index.html'
+    def get_context_data(self, *args, **kwargs):
+        clients = Client.objects.all()
+        context = super(ClientProfilePage, self).get_context_data(*args, **kwargs)
+        page_client = get_object_or_404(Client, id=self.kwargs['pk'])
+        context["page_client"] = page_client 
+        context["clients"] = clients 
+        return context
     
+
+class ClientListView(ListView):
+    model = Client
+    template_name = 'client/client_index_list.html'
+    ordering = ['-id']
+
+
+
+    
+class ClientCreateView(CreateView):
+    model = Client
+    template_name = 'client/client_create.html'
+    fields = '__all__'
+
+
+class ClientUpdateView(UpdateView):
+    model = Client
+    template_name = 'client/client_update.html'
+    fields = '__all__'
+
+class ClientDeleteView(DeleteView):
+    model = Client
+    template_name = 'client/client_delete.html'
+    fields = '__all__'
+    success_url = reverse_lazy('members:index')
+    
+ 
+
+    # ProfileInfo
 class ProfileInfo(ListView):
-    model = ProfileInfo
+    model = Client
     template_name = 'profile/info_profile.html'
     form_class = ProfileInfoForm
     # fields = '__all__'
@@ -102,7 +127,7 @@ class ProfileCreateView(CreateView):
     
 
 class ProfileUpdate(UpdateView):
-    model = ProfileInfo
+    model = Client
    
     # form_class = ProfileUpdateForm
     template_name = 'profile/update_profile.html'
@@ -110,13 +135,8 @@ class ProfileUpdate(UpdateView):
     fields = ('bio', 'website_url', 'facebook_url')
 
     
-
-
-  
-
-    
 class ProfileDelete(DeleteView):
-    model = ProfileInfo
+    model = Client
     template_name = 'profile/delete_profile.html'
     success_url = reverse_lazy('blog:index')
     

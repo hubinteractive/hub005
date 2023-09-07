@@ -1,21 +1,38 @@
 from django.urls import path
 from .views import MembersRegisterView, MembersLoginView, MembersEditView, PasswordsChangeView
 from django.contrib.auth import views as auth_views
-from .views import PasswordSucces, ProfileIndex, ProfileInfo, ProfileUpdate, ProfileDelete,  ProfileCreateView, ProfileDetailView
+from .views import PasswordSucces, ProfileInfo, ClientProfilePage, ClientListView, ClientUpdateView, ClientDeleteView, ClientCreateView # ClientIndexView 
+from .views import ProfileDelete,ProfileDelete, ProfileUpdate, ProfileCreateView
 
 app_name = 'members'
 
 urlpatterns = [
-    path('', ProfileIndex.as_view(), name='index'),
-    # path('', PIndex.as_view(), name='index'),
-    path('info_profile/', ProfileInfo.as_view(), name='info_profile'),
-    path('<int:pk>/update-profile', ProfileUpdate.as_view(), name='update-profile'),
+    # path('', ClientIndexView.as_view(), name='index'),
+
+
+
     path('profile/<int:pk>/delete', ProfileDelete.as_view(), name='delete-profile'),
+    path(' ', ProfileInfo.as_view(), name='info_profile'),
+    # path('<int:pk>/update-profile', ProfileUpdate.as_view(), name='update-profile'),
+  
     path('create_profile', ProfileCreateView.as_view(), name='create-profile'),
-    path('profile/detail/<int:pk>', ProfileDetailView.as_view(), name='profile-detail'),
-    # path('profile/<int:pk>', ProfileIndex.as_view(), name='index'),
+    
 
 
+
+    # Client
+    path('clients_all', ClientListView.as_view(), name='all-client-list' ),
+
+    path('<int:pk>/client_profile_details_page', ClientProfilePage.as_view(), name='client-profile-details-page'),
+
+
+    path('client_update/<int:pk>', ClientUpdateView.as_view(), name='client-update'),
+    path('client_delete/<int:pk>/delete', ClientDeleteView.as_view(), name='client-delete'),
+    path('clients/client_create',ClientCreateView.as_view(), name='client-create' ),
+
+
+
+    # Register
     path('signup/register/', MembersRegisterView.as_view(), name='register'),
     # path('register/signup', MembersRegisterView.as_view(), name='signup'),
     path('login/', MembersLoginView.as_view(), name='login'),

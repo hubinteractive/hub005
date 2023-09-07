@@ -176,7 +176,7 @@
                         <div class="card card-body">
                             <ul style="padding-left: 0;">
                                 <li>
-                                    <a class="anti-flash-white" style="font-size: 1.5rem;" href="{% url 'edu:client-list' %}">
+                                    <a class="anti-flash-white" style="font-size: 1.5rem;" href="{% url 'edu:edu-index' %}">
                                         Education
                                     </a>
                                 </li>
@@ -212,7 +212,7 @@
 
 
                     <li>
-                        <a class="dropdown-item" href="{% url 'edu:client-profile-details-page' user.client.user.id %}">{% if user.is_authenticated %} {{user.first_name}} {{user.last_name}} {% else %} Liquid Spirit {% endif %}</a>
+                        <a class="dropdown-item" href="{% url 'members:client-profile-details-page' user.id  %}">@{% if user.is_authenticated %} {{user.first_name}} {{user.last_name}} {% else %} Liquid Spirit {% endif %}</a>
                     </li>
                     <li>
                         <a class="dropdown-item" href="{% url 'blog:add-post' %}">Add post</a>
