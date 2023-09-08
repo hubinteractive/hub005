@@ -212,7 +212,7 @@
 
 
                     <li>
-                        <a class="dropdown-item" href="{% url 'members:client-profile-details-page' user.id  %}">@{% if user.is_authenticated %} {{user.first_name}} {{user.last_name}} {% else %} Liquid Spirit {% endif %}</a>
+                        <a class="dropdown-item" href="{% url 'members:client-profile-details-page' user.client.id  %}">@{% if user.is_authenticated %} {{user.first_name}} {{user.last_name}} {% else %} Liquid Spirit {% endif %}</a>
                     </li>
                     <li>
                         <a class="dropdown-item" href="{% url 'blog:add-post' %}">Add post</a>

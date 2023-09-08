@@ -38,5 +38,5 @@ class Client(models.Model):
         return str(self.user) 
     
     def get_absolute_url(self):
-        # return reverse('members:client-profile-details-page', args=(str(self.id)))
-        return reverse('members:index')
+        return reverse('members:client-profile-details-page', args=(str(self.id)))
+        # return reverse('members:index')

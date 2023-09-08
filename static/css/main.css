@@ -201,5 +201,15 @@ label {
     color: crimson!important
 }
 
+.display-100upp {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--secondary-white);
+    padding-right: .175rem;
+}
+
+
+/* <p><span class="display-100upp"> First name:</span> {{ client.user.first_name }}</p> */
+
 
 /* #tabs */

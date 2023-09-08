@@ -33,7 +33,7 @@
                                             {{ post.user.first_name }} {{ post.user.last_name }}
 
                                         </h5>
-                                        <a href="#"><small> E-mail: {{ post.user.email }}</small></a>
+                                        <a href="#"><small> E-mail: {{ post.email }}</small></a>
 
                                     </div>
                                     <div class="social-x">
@@ -77,7 +77,7 @@
                                         <hr>
                                     </div>
                                     <!-- <p>{{ post.user.username }}</p> -->
-                                    <p>{{ post.bio|safe }}</p>
+                                    <p>{{ post.client.bio|safe }}</p>
                                     <!--  -->
                                     <p></p>
                                     <p>User: {{user.id}}</p>
@@ -88,7 +88,7 @@
                                     <div class="d-flex">
                                         <a class="nav-link aquamarine-link" aria-current="page" href="#">Profile</a>
 
-                                        <a class="nav-link ms-2 aquamarine-link" aria-current="page" href="{% url 'members:client-profile-details-page' post.user.client.id %}">View client profile</a>
+                                        <a class="nav-link ms-2 aquamarine-link" aria-current="page" href="{% url 'members:client-profile-details-page' post.id %}">View client profile</a>
                                     </div>
                                     <!--  -->
                                     <!--  -->

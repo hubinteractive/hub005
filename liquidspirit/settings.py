@@ -103,7 +103,18 @@ DATABASES = {
         'PORT': '5432',
     }
 }
-
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'liqiud_spirit',
+#         'USER': 'iggy1971x',
+#         'PASSWORD': '2023Igy+#1',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
+# postgres://neabhhbzdyjxca:6cd4aa8e6a8cccf3b8acf9265246c68515ca08c041b9684e34a8b5d35d5c3b25@ec2-52-0-187-246.compute-1.amazonaws.com:5432/d1chr047rui054
+# postgresql-curved-81687
 
 import dj_database_url
 db_from_env = dj_database_url.config(conn_max_age=600)
