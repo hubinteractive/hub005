@@ -15,94 +15,88 @@
         <div class="row">
 
             <div class="col-lg-9">
-                <section id="tab-1" class="tab-body entry-content active active-content">
-                    <h2 class="anti-flash-white">Clients</h2>
+                <h2 class="anti-flash-white">Clients</h2>
+                <hr>
+                <div class="row">
+
+                    <!--  -->
                     {% for post in object_list %}
-                    <hr>
-                    <!-- card -->
-                    <div class="card mb-3" style="max-width: 75%;">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                {% if profile_pic %}
-                                <img class="img-fluid mb-3" src="{{post.profile_pic.url}}" style="max-width: 400px;" alt=""> {% endif %}
+
+                    <div class="col-lg-4">
+                        <div class="client_index_list d-flex align-items-center my-4" style="height: 100px;">
+                            <!-- Profile pic -->
+                            <div class="me-4">
+                                {% if post.profile_pic %}
+                                <img class="profile_pic_members_all mb-0" src="{{post.profile_pic.url}}" style="max-width: 168px;" alt=""> {% else %}
+                                <img class="profile_pic_members_all mb-0" src="{% static 'img/profile/avatar.avif' %}" alt=""> {% endif %}
                             </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <div class="">
-                                        <h5 class="card-title anti-flash-white mb-2">
-                                            {{ post.user.first_name }} {{ post.user.last_name }}
+                            <div>
+                                <!-- First and last name -->
+                                <h5 class="card-title anti-flash-white mb-2">
+                                    {{ post.user.first_name }} {{ post.user.last_name }}
+                                </h5>
+                                <!-- Email -->
+                                <div>
+                                    <a href="#"><small> E-mail: {{ post.user.email }}</small></a>
+                                </div>
 
-                                        </h5>
-                                        <a href="#"><small> E-mail: {{ post.email }}</small></a>
 
+                                <div class="d-flex">
+                                    <div class="mt-2">
+                                        <a class="nav-link aquamarine-link" aria-current="page" href="{% url 'members:client-profile-details-page' post.id %}" style="font-size: .915rem;">View profile</a>
                                     </div>
-                                    <div class="social-x">
-                                        <p>Social: </p>
-                                        <p>Q{{page_client}}</p>
-                                        {% if post.facebook_url %}
-                                        <a class="social-links" href="{{ post.facebook_url }}">
-                                       Facebook
-                                        </a> {% endif %}
-                                        <!--  -->
-                                        {% if post.twitter_url %}
-                                        <a class="social-links" href="{{ post.twitter_url }}">
-                                        Twitter 
-                                        </a> {% endif %}
-                                        <!--  -->
-                                        <!--  -->
-                                        {% if post.instagram_url %}
-                                        <a class="social-links" href="{{ post.instagram_url }}">
-                                        Instagram 
-                                        </a> {% endif %}
-                                        <!--  -->
-                                        <!--  -->
-                                        {% if post.linkedin_url %}
-                                        <a class="social-links" href="{{ post.linkedin_url }}">
-                                        Linkedin
-                                        </a> {% endif %}
-                                        <!--  -->
-                                        <!--  -->
-                                        {% if post.github_url %}
-                                        <a class="social-links" href="{{ post.github_url }}">
-                                        Github
-                                        </a> {% endif %}
-                                        <!--  -->
-                                        <!--  -->
-                                        {% if post.youtube_url %}
-                                        <a class="social-links" href="{{ post.youtube_url }}">
-                                        Youtube 
-                                        </a> {% endif %}
-                                        <!--  -->
+                                </div>
+                                <!-- Social links -->
+                                <div aria-hidden="true" class="social-x d-none">
 
-                                        <hr>
-                                    </div>
-                                    <!-- <p>{{ post.user.username }}</p> -->
-                                    <p>{{ post.client.bio|safe }}</p>
+
+                                    {% if post.facebook_url %}
+                                    <a class="social-links" href="{{ post.facebook_url }}">
+                       Facebook
+                        </a> {% endif %}
                                     <!--  -->
-                                    <p></p>
-                                    <p>User: {{user.id}}</p>
-                                    <p>Client: {{post.user.client.id}}</p>
-
-                                    <!--  -->
-
-                                    <div class="d-flex">
-                                        <a class="nav-link aquamarine-link" aria-current="page" href="#">Profile</a>
-
-                                        <a class="nav-link ms-2 aquamarine-link" aria-current="page" href="{% url 'members:client-profile-details-page' post.id %}">View client profile</a>
-                                    </div>
+                                    {% if post.twitter_url %}
+                                    <a class="social-links" href="{{ post.twitter_url }}">
+                        Twitter 
+                        </a> {% endif %}
                                     <!--  -->
                                     <!--  -->
+                                    {% if post.instagram_url %}
+                                    <a class="social-links" href="{{ post.instagram_url }}">
+                        Instagram 
+                        </a> {% endif %}
+                                    <!--  -->
+                                    <!--  -->
+                                    {% if post.linkedin_url %}
+                                    <a class="social-links" href="{{ post.linkedin_url }}">
+                        Linkedin
+                        </a> {% endif %}
+                                    <!--  -->
+                                    <!--  -->
+                                    {% if post.github_url %}
+                                    <a class="social-links" href="{{ post.github_url }}">
+                        Github
+                        </a> {% endif %}
+                                    <!--  -->
+                                    <!--  -->
+                                    {% if post.youtube_url %}
+                                    <a class="social-links" href="{{ post.youtube_url }}">
+                        Youtube 
+                        </a> {% endif %}
+                                    <!--  -->
 
-
+                                    <hr>
                                 </div>
                             </div>
+                            <!-- View profile -->
+
                         </div>
+                        <hr>
                     </div>
-                    <hr>
-                    <!--  -->
+
                     {% endfor %}
 
-
+                </div>
             </div>
             <div class="col-lg-3">
 
@@ -113,7 +107,7 @@
 
 
     </div>
-    </section>
+</section>
 
 
-    {% endblock content %}
+{% endblock content %}

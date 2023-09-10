@@ -2,7 +2,7 @@ from django.urls import path
 from .views import MembersRegisterView, MembersLoginView, MembersEditView, PasswordsChangeView
 from django.contrib.auth import views as auth_views
 from .views import PasswordSucces, ProfileInfo, ClientProfilePage, ClientListView, ClientUpdateView, ClientDeleteView, ClientCreateView # ClientIndexView 
-from .views import ProfileDelete,ProfileDelete, ProfileUpdate, ProfileCreateView
+from .views import ProfileDelete,ProfileDelete, ProfileUpdate, ProfileCreateView, ProfileView
 
 app_name = 'members'
 
@@ -14,7 +14,7 @@ urlpatterns = [
     path('profile/<int:pk>/delete', ProfileDelete.as_view(), name='delete-profile'),
     path(' ', ProfileInfo.as_view(), name='info_profile'),
     # path('<int:pk>/update-profile', ProfileUpdate.as_view(), name='update-profile'),
-  
+    path('view_profile/<int:pk>', ProfileView.as_view(), name='view-profile'),
     path('create_profile', ProfileCreateView.as_view(), name='create-profile'),
     
 

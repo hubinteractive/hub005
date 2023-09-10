@@ -1,7 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
 from django.contrib.auth.models import User
 from django import forms
-from .models import ProfileInfo
+from .models import ProfileInfo, Client
 
 class SignUpForm(UserCreationForm):
     email = forms.EmailField(widget=forms.EmailInput(attrs={'class':'form-control'}))
@@ -48,6 +48,27 @@ class PasswordChangingForm(PasswordChangeForm):
         model = User
         fields = ('old_password', 'new_password1', 'new_password2' )
 
+# choices = Client.objects.all().values_list('cat_name', 'cat_name')
+# choice_list = []
+
+
+class ClientForm(forms.ModelForm):
+    class Meta:
+        model = Client
+        fields = ('profile_pic', 'bio', 'website_url','twitter_url', 'instagram_url', 'facebook_url','youtube_url', 'linkedin_url','github_url',)
+
+        widgets = {
+            # 'user': forms.TextInput(attrs={'class':'form-control', 'value': '', 'id': 'client', 'type':'hidden'}), 
+            'bio': forms.Textarea(attrs={'class':'form-control'}),
+            'website_url': forms.TextInput(attrs={'class':'form-control'}),  
+            'facebook_url': forms.TextInput(attrs={'class':'form-control'}),
+            'instagram_url': forms.TextInput(attrs={'class':'form-control'}),  
+            'youtube_url': forms.TextInput(attrs={'class':'form-control'}), 
+            'linkedin_url': forms.TextInput(attrs={'class':'form-control'}), 
+            'github_url': forms.TextInput(attrs={'class':'form-control'}), 
+           
+              
+        }
 
 
 class ProfileCreteForm(forms.ModelForm):
@@ -100,4 +121,3 @@ class ProfileUpdateForm(forms.ModelForm):
         # }
 
 
- 

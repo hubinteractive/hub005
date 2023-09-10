@@ -144,7 +144,31 @@
         <!-- offcanvas-header -->
         <div class="offcanvas-header">
             <h4 class="offcanvas-title" id="offcanvasRightLabel">
-                {% if user.is_authenticated %} {{user.first_name}} {{user.last_name}} {% else %} Liquid Spirit {% endif %}
+                {% if user.is_authenticated %}
+                <!--  -->
+                {% if user.client.id %}
+                <a class="dropdown-item" href="{% url 'members:client-profile-details-page' user.client.id  %}">
+                    <!-- Pic -->
+                    {% if user.client.profile_pic %}
+                    <img style="height:50px;width: 50px; border-radius: 50%;margin-right: .5rem;" src="{{user.client.profile_pic.url}}" alt=""> {% else %}
+                    <img style="height:50px;width: 50px;border-radius: 50%;" src="{% static 'img/profile/avatar.avif' %}" alt=""> {% endif %}
+                    <!-- EndPic -->
+
+                    {{user.first_name}} {% else %}
+                    <!--  --><a class="dropdown-item" href="{% url 'members:view-profile' user.id  %}">View profile</a>
+                    <!--  -->
+
+                    <!--  -->
+                    {% endif %}
+                    <!--  -->
+                </a>
+                <!--  -->
+
+                {% else %} Liquid Spirit
+
+                <!--  -->
+                {% endif %}
+
             </h4>
             <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
@@ -198,9 +222,9 @@
                 <li class="mb-off-list">
                     <a style="font-size: 2rem;font-weight: 600;" href="">Reviews</a>
                 </li>
-                <li class="mb-off-list">
+                <!-- <li class="mb-off-list">
                     <a style="font-size: 2rem;font-weight: 600;" href="">Science</a>
-                </li>
+                </li> -->
                 <li class="mb-off-list">
                     <a style="font-size: 2rem;font-weight: 600;" href="">Culture</a>
                 </li>
@@ -211,9 +235,8 @@
                 <div class="profile-set" style="height: 10vh; margin-top: 3rem;">
 
 
-                    <li>
-                        <a class="dropdown-item" href="{% url 'members:client-profile-details-page' user.client.id  %}">@{% if user.is_authenticated %} {{user.first_name}} {{user.last_name}} {% else %} Liquid Spirit {% endif %}</a>
-                    </li>
+
+
                     <li>
                         <a class="dropdown-item" href="{% url 'blog:add-post' %}">Add post</a>
                     </li>

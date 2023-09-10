@@ -24,7 +24,7 @@ body {
     position: relative;
     background-image: url(../../static/img/The-Django-Stage.jpg);
     width: 100%;
-    height: 75vh;
+    height: 50vh;
 }
 
 .hero_title-container__41UbM {
@@ -110,10 +110,8 @@ body {
     padding-left: 0;
 }
 
-h6 {
-    text-transform: uppercase;
-    font-size: .875rem;
-    font-weight: 500;
+.mb-175 {
+    margin-bottom: .175rem!important;
 }
 
 .mb-off-list {
@@ -168,6 +166,35 @@ h6 {
     max-width: 400px;
 }
 
+.disabled {
+    color: rgba(255, 255, 255, .52)!important
+}
+
+.display-100upp {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--secondary-white);
+    padding-right: .175rem;
+}
+
+.profile_pic_members_all {
+    height: 100px;
+    width: 100px;
+    margin-bottom: 2rem;
+    border-radius: 50%;
+}
+
+#profile-205 .dropdown-toggle::after {
+    display: none;
+    margin-left: .255em;
+    vertical-align: .255em;
+    content: "";
+    border-top: .3em solid;
+    border-right: .3em solid transparent;
+    border-bottom: 0;
+    border-left: .3em solid transparent;
+}
+
 small {
     color: var(--anti-flash-white)
 }
@@ -197,19 +224,13 @@ label {
     color: var(--anti-flash-white)
 }
 
-.disabled {
-    color: crimson!important
-}
-
-.display-100upp {
+h6 {
     text-transform: uppercase;
-    font-weight: 700;
-    color: var(--secondary-white);
-    padding-right: .175rem;
+    font-size: .875rem;
+    font-weight: 900;
+    margin-bottom: .175rem;
+    margin-right: .275rem;
 }
 
 
-/* <p><span class="display-100upp"> First name:</span> {{ client.user.first_name }}</p> */
-
-
-/* #tabs */
+/* <!-- <a class="dropdown-item" href="{% url 'members:view-profile' user.id  %}">Veiw profile</a> --> */

@@ -1,0 +1,64 @@
+{% extends "core/base.html" %} {% block title %} Add post | {% endblock title %} {% load static %}
+<!--  -->
+{% block content %} {% if user.is_authenticated %} {% if user.id and user.email%}
+<div class="container-fluid px-0">
+    <div class="hero_canvasImageContainer__WQ5Fy" style="background-image:url(../../static/img/The-Django-Stage.jpg);width: 100%;">
+
+    </div>
+</div>
+<div class="container my-10">
+
+    <div class="anti-flash-white hero_title-container__42UbM text-start" style="list-style: none;">
+        {{user.first_name}} {{user.last_name}}
+    </div>
+    <hr>
+    <ul class="nav nav-underline pt-8 ">
+        <li class="nav-item position-relative">
+            <a class="nav-link link_text active disabled" aria-disabled="true" href="#">Intro</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#" aria-disabled="true">Posts</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link disabled" href="#" aria-disabled="true">Music</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'members:all-client-list' %}">Members</a>
+        </li>
+
+    </ul>
+    <hr>
+    <div class="py-5">
+        <p><strong>User name: </strong> {{ user.username }}</p>
+
+        <p><strong>Email: </strong> {{ user.email }}</p>
+    </div>
+
+    {% if user.client.id %} {% else %}
+
+    <div class="d-flex">
+        <a style="margin-top: 0;" class="btn btn-outline-light me-3" href="{% url 'members:edit-profile' %}">Edit profile</a>
+        <a style="margin-top: 0;" class="btn btn-outline-light" href="{% url 'members:client-create' %}">Additional info</a> {% endif %}
+    </div>
+
+    <!--     
+    <div class="form_post">
+        <div class="mt-5 form_style">
+            <form method="Post" enctype="multipart/form-data">
+                {% csrf_token %} {{ form.as_p }} {{form.media}}
+
+                <button class="btn btn-outline-light" style="min-width: 120px;">Post</button>
+                <script>
+                    var name = "{{ user.id }}";
+                    document.getElementById("sneks").value = name;
+                </script>
+            </form>
+        </div>
+    </div> -->
+
+</div>
+{% endif %} {% else %}
+<div class="container my-10 text-center">
+    <h1 class="anti-flash-white">You are not allowed here!!!</h1>
+</div>
+{% endif %} {% endblock content %}

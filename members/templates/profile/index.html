@@ -23,8 +23,8 @@
                     <div>
                         {% if page_client.profile_pic %}
 
-                        <img class="img-profile" style="border-radius: 50%;" src="{{page_client.profile_pic.url}}" alt=""> {% else %}
-                        <img class="img-profile" style="border-radius: 50%;" src="{% static 'img/profile/avatar.avif' %}" alt=""> {% endif %}
+                        <img class="img-profile" style="margin-bottom: 2rem;border-radius: 50%;" src="{{page_client.profile_pic.url}}" alt=""> {% else %}
+                        <img class="img-profile" style="margin-bottom: 2rem;border-radius: 50%;" src="{% static 'img/profile/avatar.avif' %}" alt=""> {% endif %}
 
 
                     </div>
@@ -37,8 +37,48 @@
 
                     {% if user.id == page_client.user.id %}
                     <!--  -->
-                    <a style="margin-top: 0;" class="btn btn-outline-light me-3" href="{% url 'blog:add-post' %}">Add post</a>
-                    <a style="margin-top: 0;" class="btn btn-outline-light me-3" href="{% url 'members:edit-profile' %}">Edit profile</a>
+                    <a style="margin-top: 0; margin-right: 7rem;" class="btn btn-outline-light" href="{% url 'blog:add-post' %}">Add post</a>
+
+                    <div class="dropdown-center">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #1f1f1f;border: solid 1px rgba(255,255,255, .10);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                                <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+                              </svg>
+                        </button>
+                        <ul class="dropdown-menu ps-3 py-3" style="background-color: #1f1f1f;">
+                            <li>
+                                <a style="font-size: .915rem;" class="dropdown-item d-flex align-items-center" href="{% url 'members:edit-profile' %}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
+                                        <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+                                      </svg>
+                                    <span class="ms-2">
+                                      Edit profile
+                                    </span>
+                                </a>
+                            </li>
+                            <hr>
+                            <li>
+                                <a class="dropdown-item  d-flex align-items-center" href="#" style="font-size: .915rem;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                                        <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"/>
+                                      </svg>
+                                    <span class="ms-2">Delete profile </span>
+                                </a>
+                            </li>
+                            <hr>
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" aria-hidden="true" href="#" style="font-size: .915rem;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                        <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                      </svg>
+                                    <span class="ms-2">Search</span>
+
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- <a style="margin-top: 0;" class="btn btn-outline-light me-3" href="{% url 'members:edit-profile' %}">Edit profile</a>
+                    <a style="margin-top: 0;" class="btn btn-outline-light" href="#">Delete profile</a> -->
                     <!-- Create client info -->
                     {% if page_client.user.id %}
                     <!--  -->
@@ -58,43 +98,36 @@
     </div>
 
     <!-- BIO EDIT -->
-    <div class="hub_005_width pt-10 pb-3">
-
+    <!-- <div class="hub_005_width pt-10 pb-3">
+        <div class="test-cd">
         <br>
         <br>
         <hr>
-
-
-
         <p><span class="display-100upp"> client.user.first_name:</span> {{ client.user.first_name }}</p>
         <p><span class="display-100upp"> user.first_name:</span> {{ client.user.last_name }}</p>
         <p>client.id: <span class="tangelo"> User Table</span> - {{ client.id }}</p>
         <p>client.user.id: <span class="tangelo"> Client Table </span> - {{ client.user.id }}</p>
+        <h4 class="anti-flash-white"> {{ client.bio|safe }} </h4>    
+</div>
+
+    </div> -->
 
 
 
-
-
-        <h4 class="anti-flash-white"> {{ client.bio|safe }} </h4>
-        <p class="anti-flash-white">
-            Pic: {{user.client.profile_pic}}
-        </p>
-
-    </div>
-    <!-- client -->
     <div class="hub_005_width">
+        <!-- Navbar -->
         <ul class="nav nav-underline pt-8 pb-5">
             <li class="nav-item position-relative">
-                <a class="nav-link link_text active" aria-current="page" href="#">Intro</a>
+                <a class="nav-link link_text active" aria-disabled="true" href="#">Intro</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Posts</a>
+                <a class="nav-link disabled" aria-disabled="true" href="#">Posts</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Music</a>
+                <a class="nav-link disabled" aria-disabled="true" href="#">Music</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{% url 'members:all-client-list' %}">Members</a>
+                <a class="nav-link" aria-disabled="false" href="{% url 'members:all-client-list' %}">Members</a>
             </li>
 
         </ul>
@@ -128,6 +161,7 @@
                     <div class="tabs-blockx">
                         <div id="tabs-section" class="tabs">
                             <div class="col-lg-3">
+                                <!-- Left navigation -->
                                 <ul class="tab-head">
                                     <h2 class="mb-3">Say Hi!</h2>
                                     <hr>
@@ -148,7 +182,7 @@
                                     </li>
                                     <li>
                                         <a href="#tab-4" class="tab-link"> 
-                                              Details about {{ user.first_name }}
+                                              Details about {{ page_client.user.first_name }}
                                         </a>
                                     </li>
                                     <li>
@@ -158,50 +192,83 @@
                             </div>
                             <div class="col-lg-9">
 
+                                <!-- Overview -->
                                 <section id="tab-1" class="tab-body entry-content active active-content">
+
                                     <h2 class="mb-3">Overview</h2>
+                                    <hr class="pb-3">
                                     <div class="mb-3">
-                                        <p>Index: {{ page_client }}</p>
-                                        <p>client.id: <span class="tangelo"> Client Table</span> - {{ client.id }}</p>
-                                        <p>client.user.id: <span class="tangelo"> User Table </span> - {{ client.user.id }}</p>
-                                        <p>BIO: {{ page_client.bio|safe }}</p>
-                                        <p>FIRST NAME: {{ page_client.user.first_name|safe }}</p>
-                                        <p> <strong>LAST NAME:</strong> {{ page_client.user.last_name|safe }}</p>
+                                        <!-- Picture -->
+                                        {% if page_client.profile_pic %}
+                                        <img style="height:100px;width: 100px; margin-bottom: 2rem;border-radius: 50%;" src="{{page_client.profile_pic.url}}" alt=""> {% else %}
+                                        <img style="height:100px;width: 100px; margin-bottom: 2rem;border-radius: 50%;" src="{% static 'img/profile/avatar.avif' %}" alt=""> {% endif %}
+                                        <!-- End piscture  -->
+                                        <p> <strong></strong> </p>
 
-                                        <h5>Loop</h5>
 
+                                        <div class="d-flex align-items-center mb-1">
+                                            <h6>User name::</h6>
+                                            <p class="mb-175">
+                                                {{ page_client }}</p>
+                                        </div>
+
+                                        <div class="d-flex align-items-center mb-1">
+                                            <h6> First name:</h6>
+                                            <p class="mb-175">
+                                                {{ page_client.user.first_name }}
+                                            </p>
+                                        </div>
+
+                                        <div class="d-flex align-items-center mb-1">
+                                            <h6>Last name:</h6>
+                                            <p class="mb-175">
+                                                {{ page_client.user.last_name }}
+                                            </p>
+                                        </div>
+                                        <hr>
+                                        <div>
+                                            <h6>Biography</h6>
+                                            <p>{{ page_client.bio|safe }}</p>
+                                            <hr>
+                                        </div>
                                     </div>
 
+                                    <div class="mb-4">
+                                        <a class="ms-1" href="mailto:{{page_client.user.email}}">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-envelope-at-fill me-2" viewBox="0 0 16 16">
+                                            <path d="M2 2A2 2 0 0 0 .05 3.555L8 8.414l7.95-4.859A2 2 0 0 0 14 2H2Zm-2 9.8V4.698l5.803 3.546L0 11.801Zm6.761-2.97-6.57 4.026A2 2 0 0 0 2 14h6.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586l-1.239-.757ZM16 9.671V4.697l-5.803 3.546.338.208A4.482 4.482 0 0 1 12.5 8c1.414 0 2.675.652 3.5 1.671Z"/>
+                                            <path d="M15.834 12.244c0 1.168-.577 2.025-1.587 2.025-.503 0-1.002-.228-1.12-.648h-.043c-.118.416-.543.643-1.015.643-.77 0-1.259-.542-1.259-1.434v-.529c0-.844.481-1.4 1.26-1.4.585 0 .87.333.953.63h.03v-.568h.905v2.19c0 .272.18.42.411.42.315 0 .639-.415.639-1.39v-.118c0-1.277-.95-2.326-2.484-2.326h-.04c-1.582 0-2.64 1.067-2.64 2.724v.157c0 1.867 1.237 2.654 2.57 2.654h.045c.507 0 .935-.07 1.18-.18v.731c-.219.1-.643.175-1.237.175h-.044C10.438 16 9 14.82 9 12.646v-.214C9 10.36 10.421 9 12.485 9h.035c2.12 0 3.314 1.43 3.314 3.034v.21Zm-4.04.21v.227c0 .586.227.8.581.8.31 0 .564-.17.564-.743v-.367c0-.516-.275-.708-.572-.708-.346 0-.573.245-.573.791Z"/>
+                                          </svg> {{ page_client.user.email }}
+                                        </a>
 
-                                    <!-- Picture -->
-                                    {% if page_client.profile_pic %}
-                                    <img style="height:100px;width: 100px; margin-bottom: 2rem;border-radius: 50%;" src="{{page_client.profile_pic.url}}" alt=""> {% else %}
-                                    <img style="height:100px;width: 100px; margin-bottom: 2rem;border-radius: 50%;" src="{% static 'img/profile/avatar.avif' %}" alt=""> {% endif %}
-                                    <!-- End piscture  -->
-                                    <h6>Biography</h6>
-                                    <p>{{ page_client.bio|safe }}</p>
 
-                                    <hr>
+                                        <p class="pt-3 mb-4 d-flex align-items-end">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-person-fill-check me-2" viewBox="0 0 16 16">
+                                                <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm1.679-4.493-1.335 2.226a.75.75 0 0 1-1.174.144l-.774-.773a.5.5 0 0 1 .708-.708l.547.548 1.17-1.951a.5.5 0 1 1 .858.514ZM11 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"/>
+                                                <path d="M2 13c0 1 1 1 1 1h5.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.544-3.393C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4Z"/>
+                                              </svg> {{page_client.user.username }}
+                                        </p>
 
-                                    <p>Email: {{ page_client.user.email }}</p>
-                                    <p>User name: {{page_client.user.username }}</p>
+                                        {% if page_client.website_url %}
+                                        <a class="pt-5" href="{{ page_client.website_url }}">
+                                            <svg class="me-2" width="30" height="30" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" stroke-width="3" stroke="#000000" fill="white"><path d="M39.93,55.72A24.86,24.86,0,1,1,56.86,32.15a37.24,37.24,0,0,1-.73,6"/><path d="M37.86,51.1A47,47,0,0,1,32,56.7"/><path d="M32,7A34.14,34.14,0,0,1,43.57,30a34.07,34.07,0,0,1,.09,4.85"/><path d="M32,7A34.09,34.09,0,0,0,20.31,32.46c0,16.2,7.28,21,11.66,24.24"/><line x1="10.37" y1="19.9" x2="53.75" y2="19.9"/><line x1="32" y1="6.99" x2="32" y2="56.7"/><line x1="11.05" y1="45.48" x2="37.04" y2="45.48"/><line x1="7.14" y1="32.46" x2="56.86" y2="31.85"/><path d="M53.57,57,58,52.56l-8-8,4.55-2.91a.38.38,0,0,0-.12-.7L39.14,37.37a.39.39,0,0,0-.46.46L42,53.41a.39.39,0,0,0,.71.13L45.57,49Z"/></svg>                                            {{ page_client.website_url }}</a> {% endif %}
 
+                                    </div>
+                                    <!-- Social links -->
                                     <div class="mb-4">
                                         <h5>Social: </h5>
-                                        {% if page_client.website_url %}
-                                        <p>Website: {{ page_client.website_url }}</p>
-                                        {% endif %}
+
                                         <!--  -->
                                         {% if page_client.facebook_url %}
-                                        <a href="{{ page_client.facebook_url }}">
-                                            <svg class="social-aquamarine-fb" width="34" height="34" viewBox="0 0 40 40" fill="white" xmlns="http://www.w3.org/2000/svg"><title>Facebook</title><path d="M26.0174 21.7497L26.8495 16.3604H21.6403V12.8637C21.6403 11.3906 22.3668 9.95151 24.7019 9.95151H27.0714V5.36435C27.0714 5.36435 24.9212 5 22.866 5C18.5761 5 15.7707 7.57929 15.7707 12.2529V16.3604H11V21.7497H15.7707V34.7746C16.727 34.924 17.707 35 18.7055 35C19.704 35 20.6841 34.9214 21.6403 34.7746V21.7497H26.0174Z" fill="#3cffd0"></path>
+                                        <a adding the target=”_blank” href="{{ page_client.facebook_url }}">
+                                            <svg class="social-aquamarine-fb" width="38" height="38" viewBox="0 0 40 40" fill="white" xmlns="http://www.w3.org/2000/svg"><title>Facebook</title><path d="M26.0174 21.7497L26.8495 16.3604H21.6403V12.8637C21.6403 11.3906 22.3668 9.95151 24.7019 9.95151H27.0714V5.36435C27.0714 5.36435 24.9212 5 22.866 5C18.5761 5 15.7707 7.57929 15.7707 12.2529V16.3604H11V21.7497H15.7707V34.7746C16.727 34.924 17.707 35 18.7055 35C19.704 35 20.6841 34.9214 21.6403 34.7746V21.7497H26.0174Z" fill="#3cffd0"></path>
                                         </svg>
                                         </a>
                                         {% endif %}
 
                                         <!--  -->
                                         {% if page_client.instagram_url %}
-                                        <a href="{{ page_client.instagram_url }}">
+                                        <a href="{{ page_client.instagram_url }}" adding the target=”_blank”>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="social-aquamarine-fb  bi   bi-instagram" viewBox="0 0 16 16">
                                             <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
                                           </svg>
@@ -209,7 +276,7 @@
                                         {% endif %}
                                         <!--  -->
                                         {% if page_client.twitter_url %}
-                                        <a href="{{ page_client.twitter_url }}">
+                                        <a href="{{ page_client.twitter_url }}" adding the target=”_blank”>
                                             <svg xmlns="http://www.w3.org/2000/svg" class="social-aquamarine-fb bi bi-twitter" viewBox="0 0 16 16">
                                             <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
                                           </svg>
@@ -217,7 +284,7 @@
                                         {% endif %}
                                         <!--  -->
                                         {% if page_client.youtube_url %}
-                                        <a href="{{ page_client.youtube_url }}">
+                                        <a href="{{ page_client.youtube_url }}" adding the target=”_blank”>
 
                                             <svg xmlns="http://www.w3.org/2000/svg" class="social-aquamarine-fb bi bi-youtube" viewBox="0 0 16 16">
                                             <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/>
@@ -226,53 +293,43 @@
                                         {% endif %}
                                     </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
                                     <!-- Update -->
-                                    <div class="d-flex">
+                                    <div class="d-flex mb-4">
                                         {% if client.id == user.client.id %}
-                                        <a class="aquamarine-link" href="{% url 'members:edit-profile' %}">Edit profile</a>
-                                        <a class="aquamarine-link ms-4 disabled nav-link" aria-disabled="true" href="#">Delete profile</a>
+
+
                                         <!--  -->
+                                        <a style="margin-top: 0;" class="btn btn-outline-light" href="{% url 'members:client-update' user.client.id %}">
+                                            Add info
+                                        </a>
 
-                                        <a class="aquamarine-link ms-4" href="{% url 'members:client-update' user.client.id %}">Update client info</a>
 
-                                        <a class="aquamarine-link ms-4" href="{% url 'members:client-delete' user.client.id %}">Delete clinet info</a>
+                                        <a class="btn btn-outline-light ms-2" href="{% url 'members:client-delete' user.client.id %}" style="margin-top: 0;">
+                                            
+                                            Delete info</a>
                                         <!--  -->
-
-                                        <a class="aquamarine-link ms-4" href="{% url 'members:client-create' %}">Create client info</a> {% endif %}
+                                        {% endif %}
                                         <!--  -->
                                     </div>
 
                                 </section>
 
-                                <section id="tab-2" class="tab-body entry-content">
+                                <section id=" tab-2 " class="tab-body entry-content ">
                                     <h2>Work an education...</h2>
                                 </section>
 
-                                <section id="tab-3" class="tab-body entry-content">
+                                <section id="tab-3 " class="tab-body entry-content ">
                                     <h2>Contact and basic info... </h2>
 
                                 </section>
 
-                                <section id="tab-4" class="tab-body entry-content">
+                                <section id="tab-4 " class="tab-body entry-content ">
                                     <h2>
-                                        Details about {{ user.first_name }} {{ user.last_name }}
+                                        Details about {{ page_client.user.first_name }} {{ page_client.user.last_name }}
                                     </h2>
-
                                 </section>
 
-                                <section id="tab-5" class="tab-body entry-content">
+                                <section id="tab-5 " class="tab-body entry-content ">
                                     <h2>Blush</h2>
                                     <p>Putting on blush can have a huge effect on your overall look, and I personally never leave it out of my makeup routine. Blush is especially necessary if you’re wearing a foundation with more opaque coverage, which can
                                         sometimes leave your complexion looking a little bit flat.</p>

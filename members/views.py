@@ -4,13 +4,14 @@ from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.contrib.auth.views import PasswordChangeView
 from django.urls import reverse_lazy
 from django.shortcuts import render, get_object_or_404
-from .forms import SignUpForm, EditProfileForm, PasswordChangingForm
+from .forms import SignUpForm, EditProfileForm, PasswordChangingForm, ClientForm
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from django.contrib.auth.models import User
 from ls_blog.models import Post, PostCategory
 from members.models import ProfileInfo, Client
 from .forms import ProfileInfoForm, ProfileUpdateForm, ProfileCreteForm
 from django.http import HttpResponseRedirect
+from django.urls import reverse
 
 
 
@@ -61,6 +62,17 @@ def PasswordSucces(request):
 #     #     context["cat_menu"] = cat_menu    
 #     #     return context
 
+class ProfileView(DeleteView):
+    model = User
+    template_name = 'profile/profile_view.html'
+    def get_context_data(self, *args, **kwargs):
+        clients = User.objects.all()
+        context = super(ProfileView, self).get_context_data(*args, **kwargs)
+        page_client = get_object_or_404(User, id=self.kwargs['pk'])
+        context["page_client"] = page_client 
+        context["clients"] = clients 
+        return context
+
 class ClientProfilePage(DetailView):
     model = Client
     template_name = 'profile/index.html'
@@ -84,19 +96,32 @@ class ClientListView(ListView):
 class ClientCreateView(CreateView):
     model = Client
     template_name = 'client/client_create.html'
-    fields = '__all__'
+    form_class =ClientForm
+    success_url = reverse_lazy('members:all-client-list')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
+    
+    # def get_success_url(self):
+    #     return reverse('members:view-profile', kwargs={'id': self.object.id})
 
 
 class ClientUpdateView(UpdateView):
     model = Client
     template_name = 'client/client_update.html'
-    fields = '__all__'
+    form_class =ClientForm
+    success_url = reverse_lazy('members:all-client-list')
 
 class ClientDeleteView(DeleteView):
     model = Client
     template_name = 'client/client_delete.html'
     fields = '__all__'
-    success_url = reverse_lazy('members:index')
+    success_url = reverse_lazy('members:all-client-list')
+   
+    # def get_success_url(self):
+    #     return reverse('members:view-profile', kwargs={'pk': self.object.pk})
+        
     
  
 
